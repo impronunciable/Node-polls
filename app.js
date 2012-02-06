@@ -43,7 +43,13 @@ routes = require('./routes')
 var io = sio.listen(app);
 
 io.sockets.on('connection', function(socket){
-	
+	socket.on('join poll', function(poll_id){
+		socket.join('poll_'+poll_id);
+	});
+
+	socket.on('vote', function(data){
+		io.sockets.in('poll_'+data.poll_id).emit('vote proc', data);		
+	});
 });
 
 app.listen(3000);

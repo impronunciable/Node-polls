@@ -1,5 +1,29 @@
 h1 #{poll.title}
 
+#chart_div
+
 ul
 each opt in poll.opts
-	li #{opt.title}: #{opt.votes}
+	li(id=opt._id)
+		a(href="/polls/" + poll._id + "/vote/" + opt._id) #{opt.title}: 
+			span #{opt.votes}
+
+
+script(type="text/javascript", src="/socket.io/socket.io.js")
+script()
+	$(function(){
+		var socket = io.connect('http://192.168.0.11');
+		socket.emit('join poll', '#{poll.id}');
+
+		$('a').click(function(e){
+			e.preventDefault();
+			var self = this;
+			$.getJSON($(self).attr('href'), function(data){
+				socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id });
+			});
+		});
+
+		socket.on('vote proc', function(data){
+			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
+		});
+	});

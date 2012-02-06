@@ -1,7 +1,7 @@
 h1= title
 p Welcome to #{title}
 
-form(action="/polls/create", method="POST")
+form(action="/polls/create", method="POST", id="create_poll")
 	p
 		label(for="title") Title
 		input(type="text", name="title", id="title")
@@ -12,9 +12,20 @@ form(action="/polls/create", method="POST")
 	p
 		label(for="options[]") Option
 		input(type="text", name="options[]")
+
 	p
-		label(for="options[]") Option
-		input(type="text", name="options[]")
+		button() Add another option
 
 	p
 		input(type="submit", value="submit")
+
+
+script()
+	$(function(){
+		$('#create_poll button').click(function(e){
+			e.preventDefault();
+			var option = $('#create_poll input[type=text]:last').parent().clone();
+			option.val('');
+			$(this).parent().before(option);
+		});
+	});

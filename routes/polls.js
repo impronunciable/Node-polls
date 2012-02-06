@@ -44,3 +44,15 @@ app.get('/polls/:poll_id', function(req, res){
 		}
 	});
 });
+
+
+app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
+	Poll.findById(req.params.poll_id, function(err, poll){
+		if(!err){
+			poll.opts.id(req.params.opt_id).votes++;
+			poll.save(function(){
+				res.json({poll_id: req.params.poll_id, option_id: req.params.op_id});
+			});
+		}
+	});
+});
