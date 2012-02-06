@@ -3,21 +3,14 @@
  * Module dependencies
  */
 
-var mongoose = require('mongoose');
-
 var app = module.parent.parent.exports;
 
 /*
  * Require poll model
  */
 
-require('../models/poll');
+var Poll = require('../models/poll');
 
-/*
- * Getting models
- */ 
-
-var Poll = mongoose.model('Poll');
 
 app.post('/polls/create', function(req, res){
 	// New Poll instance
@@ -25,7 +18,7 @@ app.post('/polls/create', function(req, res){
 	
 	// Add options to the poll
 	req.body.options.forEach(function(option){
-		poll.options.push({title: option});
+		poll.opts.push({title: option});
 	});
 
 	// Add a poll title
@@ -33,7 +26,6 @@ app.post('/polls/create', function(req, res){
 
 	// Save the instance to the db
 	poll.save(function(err, poll){
-		console.log(err);
 		if(!err){
 			res.redirect('/polls/' + poll._id);
 		} else {
@@ -43,7 +35,6 @@ app.post('/polls/create', function(req, res){
 });
 
 app.get('/polls/:poll_id', function(req, res){
-	console.log(req.params.poll_id);
 	Poll.findById(req.params.poll_id, function(err, poll){
 		if(err){
 			res.redirect('back');

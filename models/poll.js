@@ -21,13 +21,13 @@ var Option = new Schema({
  */
 
 var Poll = new Schema({
-		created_at 	: { type: Date, default: Date.now }
+		created_at	: { type: Date, default: Date.now }
 	, title 			: String
-	, options 		: [Option]
+	, opts 		: [Option]
 });
 
 /*
  * Poll model
  */ 
 
-mongoose.model('Poll', Poll);
+module.exports = mongoose.model('Poll', Poll);

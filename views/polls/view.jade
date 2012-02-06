@@ -1,1 +1,5 @@
--console.log(poll);
+h1 #{poll.title}
+
+ul
+each opt in poll.opts
+	li #{opt.title}: #{opt.votes}
