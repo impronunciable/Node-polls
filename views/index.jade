@@ -1,0 +1,10 @@
+h1= title
+p Welcome to #{title}
+
+form(action="/polls/create", method="POST")
+	p
+		label(for="title") Title
+		input(type="text", name="title", id="title")
+
+	p
+		input(type="submit", value="submit")
