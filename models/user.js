@@ -1,4 +1,3 @@
-
 /*
  * Module dependencies
  */
@@ -8,26 +7,17 @@ var mongoose = require('mongoose')
 	, ObjectId = Schema.ObjectId;
 
 /*
- * Option schema
+ * User schema
  */
 
-var Option = new Schema({
-		title	: String
-	, votes	: { type: Number, default: 0 }
-});
-
-/*
- * Poll schema
- */
-
-var Poll = new Schema({
+var User = new Schema({
 		user_id	:	{ type: ObjectId, required: true }
 	, title 	: String
 	, options : [Option]
 });
 
 /*
- * Poll model
+ * User model
  */ 
 
-mongoose.model('Poll', Poll);
+mongoose.model('User', User);

@@ -3,6 +3,14 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
+var app = module.exports = module.parent.exports;
+
+/*
+ * Polls routes
+ */
+
+require('./polls');
+
+app.get('/', function(req, res){
 	res.render('index', { title: 'Express' })
-};
+});
