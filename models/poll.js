@@ -21,9 +21,9 @@ var Option = new Schema({
  */
 
 var Poll = new Schema({
-		user_id	:	{ type: ObjectId, required: true }
-	, title 	: String
-	, options : [Option]
+		created_at 	: { type: Date, default: Date.now }
+	, title 			: String
+	, options 		: [Option]
 });
 
 /*

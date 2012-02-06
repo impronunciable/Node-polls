@@ -5,8 +5,7 @@
 
 var express = require('express')
   , sio = require('socket.io')
-  , mongoose = require('mongoose')
-  , routes = require('./routes')
+  , mongoose = require('mongoose');
 
 var app = module.exports = express.createServer();
 
@@ -37,7 +36,7 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+routes = require('./routes')
 
 // Socket.io
 

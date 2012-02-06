@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-var app = module.exports = module.parent.exports;
+var app = module.parent.exports;
 
 /*
  * Polls routes
