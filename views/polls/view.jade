@@ -1,19 +1,41 @@
 h1 #{poll.title}
 
-#chart_div
+#chart
 
 ul
-each opt in poll.opts
-	li(id=opt._id)
-		a(href="/polls/" + poll._id + "/vote/" + opt._id) #{opt.title}: 
-			span #{opt.votes}
+	each opt in poll.opts
+		li(id=opt._id, style="display: inline; margin: 20px;")
+			a(href="/polls/" + poll._id + "/vote/" + opt._id) #{opt.title}: 
+				span #{opt.votes}
 
-
+script(type="text/javascript", src="/js/glibs.js")
 script(type="text/javascript", src="/socket.io/socket.io.js")
 script()
 	$(function(){
-		var socket = io.connect('http://192.168.0.11');
-		socket.emit('join poll', '#{poll.id}');
+		var socket = io.connect('http://192.168.0.5');
+		socket.emit('join poll', '#{poll._id}');
+		var poll = !{json_poll};
+
+		var r = Raphael("chart");
+		var chart_data = [];
+		for(var i in poll.opts){
+			chart_data.push([poll.opts[i].votes]);
+		}
+
+		var fin = function(){
+			this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
+		};
+
+		var fout = function(){
+			this.flag.animate({opacity: 0}, 300, function () {this.remove();});
+		};
+
+		function chart_render(){
+			r.clear();
+			r.barchart(10, 10, 300, 220, chart_data).hover(fin, fout);
+		}
+
+		chart_render();		
 
 		$('a').click(function(e){
 			e.preventDefault();
@@ -25,5 +47,8 @@ script()
 
 		socket.on('vote proc', function(data){
 			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
+			chart_data[$('#'+data.option_id).index()]++;
+			chart_render();
 		});
+
 	});

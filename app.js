@@ -36,7 +36,7 @@ app.configure('production', function(){
 
 // Routes
 
-routes = require('./routes')
+require('./routes')
 
 // Socket.io
 

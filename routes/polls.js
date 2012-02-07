@@ -39,7 +39,8 @@ app.get('/polls/:poll_id', function(req, res){
 		if(err){
 			res.redirect('back');
 		} else {
-			res.locals({ title: poll.title, poll: poll });
+			console.log(JSON.stringify(poll));
+			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll)});
 			res.render('polls/view');
 		}
 	});
@@ -51,7 +52,7 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 		if(!err){
 			poll.opts.id(req.params.opt_id).votes++;
 			poll.save(function(){
-				res.json({poll_id: req.params.poll_id, option_id: req.params.op_id});
+				res.json({poll_id: req.params.poll_id, option_id: req.params.opt_id});
 			});
 		}
 	});
