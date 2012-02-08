@@ -11,13 +11,14 @@ var mongoose = require('mongoose')
  */
 
 var User = new Schema({
-		user_id	:	{ type: ObjectId, required: true }
-	, title 	: String
-	, options : [Option]
+		data			 :	String
+	, tw_id 		 : { type: Number, required: true }
+	, name 			 : String
+	, created_at : { type: Date, default: Date.now }
 });
 
 /*
  * User model
  */ 
 
-mongoose.model('User', User);
+module.exports = mongoose.model('User', User);

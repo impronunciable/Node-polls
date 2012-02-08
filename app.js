@@ -5,13 +5,19 @@
 
 var express = require('express')
   , sio = require('socket.io')
-  , mongoose = require('mongoose');
+  , mongoose = require('mongoose')
+	, everyauth = require('everyauth');
 
 var app = module.exports = express.createServer();
 
 // Set up the db
 
-mongoose.connect('mongodb://localhost/polls');
+mongoose.connect('mongodb://local.host/polls');
+
+// Auth strategies
+
+require('./auth/strategies');
+
 
 // Configuration
 
@@ -21,7 +27,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'your secret here' }));
+  app.use(express.session({ secret: require('./auth/conf').session.secret }));
+  app.use(everyauth.middleware());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
@@ -33,6 +40,7 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
+
 
 // Routes
 
@@ -51,6 +59,12 @@ io.sockets.on('connection', function(socket){
 		io.sockets.in('poll_'+data.poll_id).emit('vote proc', data);		
 	});
 });
+
+// Everyauth helper for express
+
+everyauth.helpExpress(app);
+
+// Server listen port 3000
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

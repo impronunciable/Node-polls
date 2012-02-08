@@ -1,3 +1,9 @@
+-if(!auth){
+	#twitter-login(style="float: right;")
+		a(href='/login/twitter', style='border: 0px')
+			img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
+-}
+
 h1 #{poll.title}
 
 #chart
@@ -12,7 +18,7 @@ script(type="text/javascript", src="/js/glibs.js")
 script(type="text/javascript", src="/socket.io/socket.io.js")
 script()
 	$(function(){
-		var socket = io.connect('http://192.168.0.5');
+		var socket = io.connect('http://local.host');
 		socket.emit('join poll', '#{poll._id}');
 		var poll = !{json_poll};
 
@@ -37,11 +43,15 @@ script()
 
 		chart_render();		
 
-		$('a').click(function(e){
+		$('ul a').click(function(e){
 			e.preventDefault();
 			var self = this;
 			$.getJSON($(self).attr('href'), function(data){
-				socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id });
+				if(data && "string" != typeof data){
+					socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id });
+				} else if(data){
+					alert(data);
+				}
 			});
 		});
 
