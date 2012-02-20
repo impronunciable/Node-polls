@@ -1,7 +1,7 @@
 {
-    "name": "application-name"
+    "name": "Node-polls"
   , "version": "0.0.1"
-  , "private": true
+  , "private": false
   , "dependencies": {
       "express": "2.5.1"
     , "jade": ">= 0.0.1"
