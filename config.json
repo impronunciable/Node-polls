@@ -1,0 +1,13 @@
+{
+		"db" : 	{
+				"host"	:	"local.host"
+			,	"name"	:	"polls"
+		}
+	,	"tw" :	{
+				"consumerKey" 		: "yourConsumerKey"
+			,	"consumerSecret"	:	"yourConsumerSecret"
+		}
+	,	"session" : {
+			"secret"	: "your secret string"
+	}
+}
