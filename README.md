@@ -8,9 +8,9 @@ Installation
 
 * Install [node](http://nodejs.org/#download)
 * Install [mongodb](http://www.mongodb.org/)
-* `git clone git@github.com:danzajdband/Node-polls.git && cd Node-polls && npm install`
+* `$ git clone git@github.com:danzajdband/Node-polls.git && cd Node-polls && npm install`
 * configure your Twitter credentials in `config.json`
-* `mongod`
-* `node polls.js`
+* `$ mongod`
+* `$ node polls.js`
 *  open your browser at `http://local.host:3000`
 * Enjoy
