@@ -12,7 +12,7 @@ var app = module.exports = express.createServer();
 
 // Set up the db
 
-mongoose.connect('mongodb://local.host/polls');
+mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name);
 
 // Auth strategies
 
@@ -27,7 +27,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: require('./auth/conf').session.secret }));
+  app.use(express.session({ secret: require('./auth/conf.json').session.secret }));
   app.use(everyauth.middleware());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));

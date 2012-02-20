@@ -6,7 +6,7 @@
 var everyauth = require('everyauth')
 	, mongoose = require('mongoose')
 	, User = require('../models/user')
-	, conf = require('./conf');
+	, config = require('../config.json');
 
 // Logout path
 everyauth.everymodule.logoutPath('/logout');
@@ -25,8 +25,8 @@ everyauth.everymodule.handleLogout( function (req, res) {
  */
 
 everyauth.twitter
-	.consumerKey(conf.tw.consumerKey)
-	.consumerSecret(conf.tw.consumerSecret)
+	.consumerKey(config.tw.consumerKey)
+	.consumerSecret(config.tw.consumerSecret)
   .entryPath('/auth/twitter')
   .findOrCreateUser( function (session, accessToken, accessSecret, twuser) {
 		var promise = this.Promise();
