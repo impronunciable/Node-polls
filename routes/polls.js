@@ -55,8 +55,12 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 			if(!err && poll){
 				poll.opts.id(req.params.opt_id).votes++;
 				poll.voters.push(req.session.user._id);
+				opt_index = -1;
+				poll.opts.forEach(function(opt, index){
+					if(opt._id == req.params.opt_id) opt_index = index;
+				});
 				poll.save(function(){
-					res.json({poll_id: req.params.poll_id, option_id: req.params.opt_id});
+					res.json({poll_id: req.params.poll_id, option_id: req.params.opt_id, option_index: opt_index});
 				});
 			} else {
 				res.json("Estas intentando votar 2 veces en la misma encuesta.");

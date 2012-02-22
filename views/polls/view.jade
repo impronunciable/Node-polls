@@ -14,51 +14,8 @@ ul
 			a(href="/polls/" + poll._id + "/vote/" + opt._id) #{opt.title}: 
 				span #{opt.votes}
 
-script(type="text/javascript", src="/js/glibs.js")
 script(type="text/javascript", src="/socket.io/socket.io.js")
+script(type="text/javascript", src="/js/highcharts.js")
 script()
-	$(function(){
-		var socket = io.connect('http://local.host');
-		socket.emit('join poll', '#{poll._id}');
-		var poll = !{json_poll};
-
-		var r = Raphael("chart");
-		var chart_data = [];
-		for(var i in poll.opts){
-			chart_data.push([poll.opts[i].votes]);
-		}
-
-		var fin = function(){
-			this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
-		};
-
-		var fout = function(){
-			this.flag.animate({opacity: 0}, 300, function () {this.remove();});
-		};
-
-		function chart_render(){
-			r.clear();
-			r.barchart(10, 10, 300, 220, chart_data).hover(fin, fout);
-		}
-
-		chart_render();		
-
-		$('ul a').click(function(e){
-			e.preventDefault();
-			var self = this;
-			$.getJSON($(self).attr('href'), function(data){
-				if(data && "string" != typeof data){
-					socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id });
-				} else if(data){
-					alert(data);
-				}
-			});
-		});
-
-		socket.on('vote proc', function(data){
-			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
-			chart_data[$('#'+data.option_id).index()]++;
-			chart_render();
-		});
-
-	});
+	var poll = !{json_poll};
+script(type="text/javascript", src="/js/poll.js")

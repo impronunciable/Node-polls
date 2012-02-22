@@ -4,10 +4,10 @@
 			,	"name"	:	"polls"
 		}
 	,	"tw" :	{
-				"consumerKey" 		: "yourConsumerKey"
-			,	"consumerSecret"	:	"yourConsumerSecret"
+				"consumerKey" 		: "WLYfThmboHfQQEpJ7vdahQ"
+			,	"consumerSecret"	:	"drNeLpew3s4ESBNkCfX0I2sWVbn32pkoIVqS4g6obS0"
 		}
 	,	"session" : {
-			"secret"	: "your secret string"
+			"secret"	: "reptaaar"
 	}
 }
