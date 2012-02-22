@@ -26,6 +26,16 @@
 	h5 Paste this code on your website to show the poll:
 	pre codigo html aca
 
+#disqus_thread
+script()
+	var disqus_shortname = 'instapoll';
+	var disqus_developer = 1;
+	(function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+
 h1 #{poll.title}
 
 script(type="text/javascript", src="/socket.io/socket.io.js")
