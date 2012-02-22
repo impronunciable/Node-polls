@@ -27,7 +27,7 @@
 
     var chart = new Highcharts.Chart({
         chart: {
-            renderTo: 'chart',
+            renderTo: 'pollGraph',
             type: 'column'
         },
         title: {
@@ -79,11 +79,16 @@
         }
     });
 
+		$('#pollOptions ul li').each(function(i, el){
+			$(this).children('span').eq(0).css('background',colors[i]);
+		});
 
-		$('ul a').click(function(e){
+		$('button.cta').click(function(e){
 			e.preventDefault();
+			var checked_option = $('#pollOptions input:checked').eq(0);
+			if(!checked_option) return false;
 			var self = this;
-			$.getJSON($(self).attr('href'), function(data){
+			$.getJSON('/polls/' + poll._id + '/vote/' + poll.opts[checked_option.parent().index()]._id, function(data){
 				if(data && "string" != typeof data){
 					socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id, option_index: data.option_index });
 				} else if(data) {
@@ -94,7 +99,7 @@
 
 		socket.on('vote proc', function(data){
 			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
-			chart.series[0].data[data.option_index].y++;	
-			chart.redraw();
+			chart.series[0].data[data.option_index].update(++chart.series[0].data[data.option_index].y);
 		});
 	});
+

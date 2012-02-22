@@ -1,8 +1,23 @@
 !!!
-html
+html(xmlns="http://www.w3.org/1999/xhtml")
 	head
-		title= title
-		link(rel='stylesheet', href='/styles/style.css')
-
+		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Varela+Round")
+		link(rel="stylesheet", type="text/css", href="/styles/polls.css")
+		title #{title}
 		script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
-	body!= body
+
+	body
+		#header.wrap
+			#logo
+				h1
+					a(href="/") InstaPoll.in
+			#tagline
+				h2 Create easy &amp; fast live polls
+
+		#wrapper!= body
+
+		#footer
+			.wrap
+				p InstaPolls, all rights reserved 2012 &copy; Made by 
+					a(href="http://vulsai.com") Vulsai

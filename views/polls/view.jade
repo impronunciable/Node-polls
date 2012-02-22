@@ -1,18 +1,32 @@
--if(!auth){
+#poll.wrap(class=(auth) ? "loggedIn" : "notLoggedIn")
 	#twitter-login(style="float: right;")
 		a(href='/login/twitter', style='border: 0px')
 			img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
--}
+
+	#pollQuestions
+		h3= poll.title
+		h4
+	
+	#pollOptions
+		ul
+			each opt,key in poll.opts
+				li
+					span.refColor
+						span
+					input(type="radio", name="votePoll", id="votePoll" + key)
+					label(for="votePoll" + key)= opt.title
+
+		p
+			button.cta(type="submit")
+				strong Vote
+
+	#pollGraph
+
+#pollSnippet.wrap
+	h5 Paste this code on your website to show the poll:
+	pre codigo html aca
 
 h1 #{poll.title}
-
-#chart
-
-ul
-	each opt in poll.opts
-		li(id=opt._id, style="display: inline; margin: 20px;")
-			a(href="/polls/" + poll._id + "/vote/" + opt._id) #{opt.title}: 
-				span #{opt.votes}
 
 script(type="text/javascript", src="/socket.io/socket.io.js")
 script(type="text/javascript", src="/js/highcharts.js")

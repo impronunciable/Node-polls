@@ -1,0 +1,100 @@
+/*- Reset Styles -----------------------------------------------------------*/
+	
+	
+		html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, 
+		cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, 
+		ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, button
+		{margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align: baseline; background:transparent;}
+		
+		ol, ul {list-style:none;}
+		h1, h2, h3, h4, h5, h6, li {line-height:100%;}
+		blockquote, q {quotes:none;}
+		table {border-collapse:collapse; border-spacing:0;}
+		input, textarea, button {font-family:inherit; font-size:1em;}
+		textarea {overflow:auto;}
+		
+
+/*- End Reset Styles -------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+
+		body {font:75% Arial, Helvetica, sans-serif; color:#333; background:#FFF;}
+		
+			
+			#tagline h2,
+			#pollQuestions h3,
+			#pollQuestions h4,
+			#pollSnippet h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
+			
+			button::-moz-focus-inner {padding:0; border:0}
+			
+			
+			.wrap {width:75%; margin:0 auto;}
+			
+			#header,
+			#poll {overflow:hidden;}
+			
+			
+			#logo a,
+			.refColor,
+			.refColor span {display:block; font-size:0; text-indent:-9999em;}
+			
+			.refColor,
+			.refColor span,
+			#pollSnippet pre,
+			.cta {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
+			
+			.cta {display:block; width:100%; border:1px solid #CCC; cursor:pointer;}
+				.cta strong {display:block; padding:15px; background:#D5D5D5 url(../images/bgs/cta.png) repeat-x 0 0;}
+			
+			#header {padding:30px 0; border-bottom:2px solid #EEE;}
+			
+				#logo,
+				#tagline {float:left;}
+			
+				#logo {}
+					#logo a {width:169px; height:31px; background:url(../images/logo.png) no-repeat 0 0;}
+				
+				#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
+				
+			
+			#poll {padding-bottom:60px;}
+			
+			
+			#pollQuestions {text-align:center; padding:50px 0 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
+				#pollQuestions h3 {font-size:3.5em;}
+				#pollQuestions h4 {font-size:1.5em; font-style:italic; color:#666; padding:3px 0 20px;}
+				
+			
+			#pollOptions {float:left; width:47%; margin-right:3%;}
+				#pollOptions li {border-bottom:1px dotted #CCC; position:relative;}
+				#pollOptions input {position:absolute; top:12px; left:22px; z-index:1;}
+				#pollOptions label {display:block; color:#777; font-size:1.167em; padding:15px 0 15px 50px; cursor:pointer;}
+				#pollOptions label strong {font-weight:normal;}
+				#pollOptions label span {display:block; padding-top:7px;}
+				#pollOptions label span a {color:#999;}
+				#pollOptions label span a:hover {color:#000;}
+				#pollOptions label:hover {background:#FAFAFA; color:#333;}
+				#pollOptions label:hover a {color:#900;}
+				#pollOptions p {padding-top:15px;}
+				
+				.refColor {width:16px; height:16px; background:#C00; position:absolute; top:13px; left:0; z-index:1;}
+					.refColor span {width:100%; height:100%; background:url(../images/bgs/refcolor.png) repeat-x 0 0;}
+				
+			#pollGraph {float:right; width:50%;}
+			
+			
+		#pollSnippet {clear:both; padding:30px 0 70px; border-top:2px solid #EEE;}
+			#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
+			#pollSnippet pre {padding:15px; color:#7D5822; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
+		
+		
+		
+		#footer {background:#555; padding:25px 0;}
+			#footer p,
+			#footer a {color:#999;}
+			#footer a:hover {color:#FFF;}
+		
+		
+		
+		
