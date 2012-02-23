@@ -92,6 +92,9 @@
 			$.getJSON('/polls/' + poll._id + '/vote/' + poll.opts[checked_option.parent().index()]._id, function(data){
 				if(data && "string" != typeof data){
 					socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id, option_index: data.option_index });
+					$('#pollOptions').fadeOut(function(){
+						$('#pollGraph,.highcharts-container').animate({width: '100%'});
+					});
 				} else if(data) {
 					alert(data);
 				}		
@@ -101,9 +104,6 @@
 		socket.on('vote proc', function(data){
 			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
 			chart.series[0].data[data.option_index].update(++chart.series[0].data[data.option_index].y);
-			$('#pollOptions').fadeOut(function(){
-				$('#pollGraph,.highcharts-container').animate({width: '100%'});
-			});
 		});
 	});
 
