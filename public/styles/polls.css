@@ -71,7 +71,7 @@
 			
 			#pollQuestions {text-align:center; padding:50px 0 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
 				#pollQuestions h3 {font-size:3.5em;}
-				#pollQuestions h4 {font-size:1.5em; font-style:italic; color:#666; padding:3px 0 20px;}
+				#pollQuestions h4 {font-size:1.5em; font-style:italic; color:#666; padding:12px 0 20px;}
 				
 			
 			#pollOptions {float:left; width:47%; margin-right:3%;}
