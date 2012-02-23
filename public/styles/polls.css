@@ -12,78 +12,96 @@
 		table {border-collapse:collapse; border-spacing:0;}
 		input, textarea, button {font-family:inherit; font-size:1em;}
 		textarea {overflow:auto;}
+		button::-moz-focus-inner {padding:0; border:0}
 		
 
 /*- End Reset Styles -------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 
+/*- General Styles ---------------------------------------------------------*/
+
 
 		body {font:75% Arial, Helvetica, sans-serif; color:#333; background:#FFF;}
 		
 			
+			/*- Font -*/
 			#tagline h2,
 			#pollQuestions h3,
 			#pollQuestions h4,
 			#pollSnippet h5,
 			#socialLogin em,
-			#newPoll h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
+			#newPoll h5,
+			#pollGraph h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
 			
-			button::-moz-focus-inner {padding:0; border:0}
-			
-			
+			/*- Resolution -*/			
 			.wrap {width:85%; margin:0 auto;}
 			
-			#header,
-			#poll,
-			#socialLogin p {overflow:hidden;}
+			/*- Float clears -*/
+			#header, #poll, #socialLogin p {overflow:hidden;}
 			
+			/*- Hide text -*/
+			#logo a, .refColor, .refColor span {display:block; font-size:0; text-indent:-9999em;}
 			
-			#logo a,
-			.refColor,
-			.refColor span {display:block; font-size:0; text-indent:-9999em;}
+			/*- Border radius -*/
+			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
 			
-			.refColor,
-			.refColor span,
-			#pollSnippet pre,
-			.cta,
-			#socialLogin p,
-			#newPoll input,
-			#newPoll fieldset,
-			#newPoll .addOption {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
-			
+			/*- Box shadows -*/		
 			#socialLogin p {-moz-box-shadow:0 0 3px rgba(0,0,0,0.3); -webkit-box-shadow:0 0 3px rgba(0,0,0,0.3); -o-box-shadow:0 0 3px rgba(0,0,0,0.3); box-shadow:0 0 3px rgba(0,0,0,0.3);}
-			.cta {box-shadow:2px 2px 2px rgba(0,0,0,0.1);}
+			.cta {-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.1); -webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.1); -o-box-shadow:2px 2px 2px rgba(0,0,0,0.1); box-shadow:2px 2px 2px rgba(0,0,0,0.1);}
 			
+			/*- CTAs -*/			
 			.cta {display:block; text-align:center; font-size:1.167em; text-decoration:none; background:#D5D5D5 url(../images/bgs/cta.png) repeat-x 0 0; border:1px solid #CCC; cursor:pointer;}
 				.cta strong {display:block; padding:15px; color:#333; text-shadow:1px 1px #EEE;}
-			
-			#header {padding:30px 0; border-bottom:2px solid #EEE;}
-			
-				#logo,
-				#tagline {float:left;}
-			
-				#logo {}
-					#logo a {width:169px; height:31px; background:url(../images/logo.png) no-repeat 0 0;}
 				
-				#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
-				
-				#siteShare {float:left; padding:7px 0 0 20px;}
-					#siteShare li {float:left; margin-right:10px;}
-					
-				#addNewPollCta {float:right; margin-top:-7px;}
-					#addNewPollCta .cta {opacity:0.5;}
-					#addNewPollCta .cta:hover {opacity:1;}
+
+/*- End General Styles -----------------------------------------------------*/			
+/*-----------------------------------------------------------------------------------------------*/
+
+/*- Header ----------------------------------------------------------------*/
+
+		
+		#header {padding:30px 0; border-bottom:2px solid #EEE;}
 			
-			#poll {padding-bottom:60px; position:relative;}
+			#logo, #tagline, #siteShare {float:left;}
+			
+			/*- Logo -*/
+			#logo {}
+				#logo a {width:169px; height:31px; background:url(../images/logo.png) no-repeat 0 0;}
+				
+			/*- Tagline -*/
+			#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
+				
+			/*- Site Share -*/
+			#siteShare {padding:7px 0 0 20px;}
+				#siteShare li {float:left; margin-right:10px;}
+				
+			/*- Add new poll -*/
+			#addNewPollCta {float:right; margin-top:-7px;}
+				#addNewPollCta .cta {opacity:0.5;}
+				#addNewPollCta .cta:hover {opacity:1;}
+				
+				
+/*- End Header ------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+/*- Main Content ----------------------------------------------------------*/
+
 			
 		
+		#poll {padding-bottom:60px; position:relative;}
 			
+		
+			/*------------------*/
+			/* QUESTION			*/
+			/*------------------*/
 			
 			#pollQuestions {text-align:center; padding:50px 0 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
 				#pollQuestions h3 {font-size:3.5em;}
 				#pollQuestions h4 {font-size:1.5em; font-style:italic; color:#666; padding:12px 0 20px;}
 				
-			
+			/*------------------*/
+			/* OPTIONS			*/
+			/*------------------*/
 			#pollOptions {float:left; width:47%; margin-right:3%;}
 				#pollOptions li {border-bottom:1px dotted #CCC; position:relative;}
 				#pollOptions input {position:absolute; top:12px; left:22px; z-index:1;}
@@ -98,10 +116,13 @@
 				
 				.refColor {width:16px; height:16px; background:#C00; position:absolute; top:13px; left:0; z-index:1;}
 					.refColor span {width:100%; height:100%; background:url(../images/bgs/refcolor.png) repeat-x 0 0;}
-				
-			#pollGraph {float:right; width:50%;}
+					
+			/*------------------*/
+			/* NEW POLL			*/
+			/*------------------*/
 			
 			#newPoll {float:left; width:46%; margin-right:3%;}
+				#newPoll h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
 				#newPoll label {display:block; font-weight:bold; color:#666; font-size:1.083em; padding-bottom:7px;}
 				#newPoll label em {font-weight:normal;}
 				#newPoll p {padding-bottom:15px;}
@@ -110,49 +131,79 @@
 				#newPoll fieldset {padding:5% 5% 2%; margin-bottom:25px; background:#FFFFE5; border:1px solid #FFDBB7;}
 				#newPoll legend {display:block; position:static; font-weight:bold;}
 				#newPoll button {float:right; margin-bottom:3%;}
+			
+			/*------------------*/
+			/* GRAPH			*/
+			/*------------------*/
 				
-			#newPoll h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
+			#pollGraph {float:right; width:50%;}
+				#pollGraph h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
+			
+			/*------------------*/
+			/* SNIPPET			*/
+			/*------------------*/
 			
 			
-		#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
-			#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
-			#pollSnippet pre {padding:15px; color:#7D5822; margin-bottom:15px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
-		
-		#disqus_thread {padding:15px 0; border-top:2px solid #EEE;}
-			.dsq-subscribe-email,
-			.dsq-subscribe-rss,
-			#dsq-account-dropdown a {color:#900;}
-		
-		#socialLogin {position:absolute; padding:7% 4%; top:0; left:0; width:39%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
-			#socialLogin p {background:#FFF; border:1px solid #CCC;}
-			#socialLogin em {display:block; font-style:normal; text-align:center; color:#999; font-size:1.5em; padding:25px 0 20px; border-bottom:1px solid #EEE;}
-			#socialLogin span {float:left; padding:5% 0 5% 5%; width:42%;}
-			#socialLogin .cta {opacity:0.9;}
-			#socialLogin .cta:hover {opacity:1;}
-			#socialLogin .cta strong {color:#FFF; text-shadow:1px 1px rgba(0,0,0,0.3);}
+			#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
+				#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
+				#pollSnippet pre {padding:15px; color:#7D5822; margin-bottom:15px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
 			
-			#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
-			#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
+			/*------------------*/
+			/* COMMENTS			*/
+			/*------------------*/	
 		
-		#footer {background:#555; padding:25px 0;}
-			#footer p,
-			#footer a {color:#999;}
-			#footer a:hover {color:#FFF;}
+			#disqus_thread {padding:15px 0; border-top:2px solid #EEE;}
+				.dsq-subscribe-email,
+				.dsq-subscribe-rss,
+				#dsq-account-dropdown a {color:#900;}
+				
+			/*------------------*/
+			/* SOCIAL LOGIN		*/
+			/*------------------*/	
 		
+			#socialLogin {position:absolute; padding:7% 4%; top:0; left:0; width:39%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
+				#socialLogin p {background:#FFF; border:1px solid #CCC;}
+				#socialLogin em {display:block; font-style:normal; text-align:center; color:#999; font-size:1.5em; padding:25px 0 20px; border-bottom:1px solid #EEE;}
+				#socialLogin span {float:left; padding:5% 0 5% 5%; width:42%;}
+				#socialLogin .cta {opacity:0.9;}
+				#socialLogin .cta:hover {opacity:1;}
+				#socialLogin .cta strong {color:#FFF; text-shadow:1px 1px rgba(0,0,0,0.3);}
+				
+				/*- According to social -*/
+				#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
+				#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
+			
+			
+/*- End Main Content ------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+/*- Footer ----------------------------------------------------------------*/
+
+	
+	#footer {background:#555; padding:25px 0;}
+		#footer p,
+		#footer a {color:#999;}
+		#footer a:hover {color:#FFF;}
+	
+
+/*- End Footer ------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+/*- Small and mobile resolutions ------------------------------------------*/
+	
 		
-		
-		
-@media screen and (max-width:800px) {
-  
-  .wrap {width:90%; padding:0 5%;}
-  #pollOptions,
-  #pollGraph {float:none; width:auto; margin:0;}
-  #tagline h2 {padding:10px 0 0;}
-  #pollOptions {margin-bottom:30px;}
-  #pollQuestions {margin-bottom:25px;}
-  #socialLogin {width:92%; padding:0 4% 4%; height:auto;}
-  #socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
-}
-		
-		
-		
+	@media screen and (max-width:800px){
+	 
+	  .wrap {width:90%; padding:0 5%;}
+	  #pollOptions,
+	  #pollGraph {float:none; width:auto; margin:0;}
+	  #tagline h2 {padding:10px 0 0;}
+	  #pollOptions {margin-bottom:30px;}
+	  #pollQuestions {margin-bottom:25px;}
+	  #socialLogin {width:92%; padding:0 4% 4%; height:auto;}
+	  #socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
+	  
+	}
+	
+/*- End Small and mobile resolutions --------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
