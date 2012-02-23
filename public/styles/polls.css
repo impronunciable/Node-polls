@@ -95,9 +95,9 @@
 			/* QUESTION			*/
 			/*------------------*/
 			
-			#pollQuestions {text-align:center; padding:50px 0 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
-				#pollQuestions h3 {font-size:3.5em;}
-				#pollQuestions h4 {font-size:1.5em; font-style:italic; color:#666; padding:12px 0 20px;}
+			#pollQuestions {text-align:center; padding:50px 0% 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
+				#pollQuestions h3 {font-size:3.25em; line-height:110%; padding:0 10%;}
+				#pollQuestions h4 {font-size:1.5em; line-height:130%; font-style:italic; color:#666; padding:25px 10% 20px;}
 				
 			/*------------------*/
 			/* OPTIONS			*/
@@ -138,6 +138,8 @@
 				
 			#pollGraph {float:right; width:50%;}
 				#pollGraph h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
+				#pollGraph h5 a {color:#222; text-decoration:none;}
+				#pollGraph h5 a:hover {color:#468700; text-decoration:underline;}
 			
 			/*------------------*/
 			/* SNIPPET			*/
@@ -146,7 +148,7 @@
 			
 			#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
 				#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
-				#pollSnippet pre {padding:15px; color:#7D5822; margin-bottom:25px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
+				#pollSnippet pre {padding:15px; text-align:center; color:#7D5822; margin-bottom:25px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
 				#pollSnippet p {padding:20px 0 10px; text-align:center;}
 				#pollSnippet #___plusone_1,
 				#pollSnippet .twitter-share-button {position:relative; top:-13px;}
@@ -175,6 +177,9 @@
 				/*- According to social -*/
 				#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
 				#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
+				
+			#features {clear:both; padding-top:40px;}
+				#features ul {padding-top:30px; border-top:2px solid #EEE;}
 			
 			
 /*- End Main Content ------------------------------------------------------*/
@@ -194,17 +199,24 @@
 
 /*- Small and mobile resolutions ------------------------------------------*/
 	
-		
+	
+	@media screen and (max-width:1100px){
+		#siteShare {clear:left; padding:15px 0 0;}
+		#pollSnippet pre {overflow:auto;}
+	}
+	
 	@media screen and (max-width:800px){
 	 
-	  .wrap {width:90%; padding:0 5%;}
-	  #pollOptions,
-	  #pollGraph {float:none; width:auto; margin:0;}
-	  #tagline h2 {padding:10px 0 0;}
-	  #pollOptions {margin-bottom:30px;}
-	  #pollQuestions {margin-bottom:25px;}
-	  #socialLogin {width:92%; padding:0 4% 4%; height:auto;}
-	  #socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
+		#siteShare {clear:both;}
+		.wrap {width:90%; padding:0 5%;}
+		#newPoll,
+		#pollOptions,
+		#pollGraph {float:none; width:auto; margin:0; clear:both;}
+		#tagline h2 {padding:10px 0 0;}
+		#pollOptions {margin-bottom:30px;}
+		#pollQuestions {margin-bottom:25px;}
+		#socialLogin {width:92%; padding:0 4% 4%; height:auto;}
+		#socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
 	  
 	}
 	

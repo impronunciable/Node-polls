@@ -40,10 +40,9 @@
 	-if(hot_poll) {					
 
 			#pollGraph
-				h5 Hot Poll Right Now: #{hot_poll.title}
+				h5 Hot Poll Right Now: 
+					a(href="/polls/"+hot_poll._id) #{hot_poll.title}
 				#chart
-				p
-					a(href="/polls/"+hot_poll._id) Participate in this poll
 
 			script(type="text/javascript")
 				var poll = $.parseJSON('!{json_poll}');
@@ -52,6 +51,22 @@
 			script(type="text/javascript", src="/js/highcharts.js")
 			script(type="text/javascript", src="/js/poll.js")
 	- }
+
+	#features
+		ul
+			li.feature#feature1
+				h6 As easy as 1, 2, 3
+				p Create your poll in just a couple of seconds. No registration, no complications, just ask stuff!
+				
+			li.feature#feature2
+				h6 Real Time
+				p See what people vote in real time. Graphic representation updates instantly. It's like magic!
+				
+			li.feature#feature3
+				h6 Mobile
+				p Visit Instapoll from your iPhone/Android and create a poll right away. No installation or download required!
+	
+	
 
 script(type="text/javascript")
 	$(function(){
