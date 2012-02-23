@@ -50,7 +50,7 @@ app.get('/login/facebook', function(req, res){
 });
 
 app.get('/terms', function(req, res){
-	res.render('terms');
+	res.render('terms', {title: 'Terms'});
 });
 
 app.error(function(err, req, res, next){

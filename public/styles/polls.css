@@ -126,6 +126,7 @@
 			
 			#newPoll {float:left; width:46%; margin-right:3%;}
 				#newPoll h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
+				#newPoll h5 em {font-size:0.75em; color:#999; padding-left:5px;}
 				#newPoll label {display:block; font-weight:bold; color:#666; font-size:1.083em; padding-bottom:7px;}
 				#newPoll label em {font-weight:normal;}
 				#newPoll p {padding-bottom:15px;}
@@ -141,14 +142,13 @@
 				
 			#pollGraph {float:right; width:50%;}
 				#pollGraph h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
-				#pollGraph h5 a {color:#222; text-decoration:none;}
-				#pollGraph h5 a:hover {color:#468700; text-decoration:underline;}
+				#pollGraph h5 a {color:#468700;}
+				#pollGraph h5 a:hover {color:#000;}
 			
 			/*------------------*/
 			/* SNIPPET			*/
 			/*------------------*/
-			
-			
+					
 			#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
 				#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
 				#pollSnippet pre {padding:15px; overflow:hidden; text-align:center; color:#7D5822; margin-bottom:15px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
@@ -181,7 +181,10 @@
 				/*- According to social -*/
 				#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
 				#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
-				
+			
+			/*------------------*/
+			/* FEATURES			*/
+			/*------------------*/	
 			#features {clear:both; padding-top:60px;}
 				#features h5 {padding:30px 0; text-transform:uppercase; color:#888; font-weight:normal; text-align:center; border-top:2px solid #EEE;}
 				#features li {float:left; width:32%;}
@@ -194,6 +197,14 @@
 				#features #feature2 h6 {background:url(../images/icons/realTime.gif) no-repeat 0 0;}
 				#features #feature3 h6 {background:url(../images/icons/mobile.gif) no-repeat 0 0;}
 				
+			/*------------------*/
+			/* TERMS			*/
+			/*------------------*/	
+			#terms {padding:0 10%;}
+				#terms p {line-height:150%; padding-bottom:15px;}
+				#terms ol {padding:10px 0;}
+					#terms li {line-height:130%; padding-bottom:10px;}
+				
 			
 /*- End Main Content ------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
@@ -202,10 +213,12 @@
 
 	
 	#footer {background:#555; padding:25px 0;}
+		#footer p {overflow:hidden;}
 		#footer p,
 		#footer a {color:#999;}
 		#footer a:hover {color:#FFF;}
-	
+		#footer em {float:right;}
+		
 
 /*- End Footer ------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
