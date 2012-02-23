@@ -13,14 +13,18 @@ var Poll = require('../models/poll')
 	,	utils = require('../utils.js');
 
 app.post('/polls/create', function(req, res){
-	if(req.body.options && req.body.options.length >= 2){
+	
+	var no_empty = [];
+	req.body.options.forEach(function(option){
+		if(option.length)	no_empty.push({ title: option});
+	});
+
+	if(req.body.options && no_empty >= 2){
 		// New Poll instance
 		var poll = new Poll();
 	
 		// Add options to the poll
-		req.body.options.forEach(function(option){
-			poll.opts.push({title: option});
-		});
+		poll.opts = no_empty;
 
 		// Add a poll title
 		poll.title = req.body.title;
