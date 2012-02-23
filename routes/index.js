@@ -3,7 +3,14 @@
  * Module dependencies
  */
 
-var everyauth = require('everyauth');
+var everyauth = require('everyauth')
+	, mongoose = require('mongoose');
+
+/*
+ * Models
+ */
+
+var Poll = require('../models/poll');
 
 /*
  * GET home page.
@@ -17,8 +24,12 @@ var app = module.parent.exports;
 
 require('./polls');
 
+var Poll = mongoose.model('Poll');
+
 app.get('/', function(req, res){
-	res.render('index', { title: 'Express' });
+	Poll.findOne({}).desc('updated_at').run(function(err, poll){
+		res.render('index', { title: 'InstaPolls', hot_poll: poll });
+	});
 });
 
 app.get('/login/twitter', function(req, res){

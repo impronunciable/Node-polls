@@ -13,7 +13,6 @@ var Poll = require('../models/poll')
 	,	utils = require('../utils.js');
 
 app.post('/polls/create', function(req, res){
-	
 	var no_empty = [];
 	req.body.options.forEach(function(option){
 		if(option.length)	no_empty.push({ title: option});
@@ -62,6 +61,7 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 			if(!err && poll){
 				poll.opts.id(req.params.opt_id).votes++;
 				poll.voters.push(req.session.user);
+				poll.updated_at = Date.now();
 				opt_index = -1;
 				poll.opts.forEach(function(opt, index){
 					if(opt._id == req.params.opt_id) opt_index = index;
