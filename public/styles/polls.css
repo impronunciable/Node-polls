@@ -67,6 +67,12 @@
 				
 				#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
 				
+				#siteShare {float:left; padding:7px 0 0 20px;}
+					#siteShare li {float:left; margin-right:10px;}
+					
+				#addNewPollCta {float:right; margin-top:-7px;}
+					#addNewPollCta .cta {opacity:0.5;}
+					#addNewPollCta .cta:hover {opacity:1;}
 			
 			#poll {padding-bottom:60px; position:relative;}
 			
