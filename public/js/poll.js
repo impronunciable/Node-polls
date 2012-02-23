@@ -27,12 +27,10 @@
 
     var chart = new Highcharts.Chart({
         chart: {
-            renderTo: 'pollGraph',
+            renderTo: 'chart',
             type: 'column'
         },
-        title: {
-            text: poll.title
-        },
+        title: false,
         xAxis: {
             categories: categories
         },
@@ -93,7 +91,9 @@
 				if(data && "string" != typeof data){
 					socket.emit('vote', { poll_id: data.poll_id, option_id: data.option_id, option_index: data.option_index });
 					$('#pollOptions').fadeOut(function(){
-						$('#pollGraph,.highcharts-container').animate({width: '100%'});
+						$('#pollGraph').animate({width: '100%'}, function(){
+							chart.setSize($('#pollGraph').width(),$('#pollGraph').height());
+						});
 					});
 				} else if(data) {
 					alert(data);
