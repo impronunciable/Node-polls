@@ -30,7 +30,8 @@
 			#pollQuestions h4,
 			#pollSnippet h5,
 			#socialLogin em,
-			#newPoll h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
+			#newPoll h5,
+			#pollGraph h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
 			
 			/*- Resolution -*/			
 			.wrap {width:85%; margin:0 auto;}
