@@ -53,6 +53,8 @@
 			/*- CTAs -*/			
 			.cta {display:block; text-align:center; font-size:1.167em; text-decoration:none; background:#D5D5D5 url(../images/bgs/cta.png) repeat-x 0 0; border:1px solid #CCC; cursor:pointer;}
 				.cta strong {display:block; padding:15px; color:#333; text-shadow:1px 1px #EEE;}
+			.cta:hover {background:#444; border-color:#000;}
+				.cta:hover strong {color:#FFF; text-shadow:1px 1px #000;}
 				
 
 /*- End General Styles -----------------------------------------------------*/			
