@@ -110,6 +110,7 @@
 			#socialLogin .cta strong {color:#FFF; text-shadow:1px 1px rgba(0,0,0,0.3);}
 			
 			#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
+			#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
 		
 		#footer {background:#555; padding:25px 0;}
 			#footer p,
@@ -124,7 +125,9 @@
   .wrap {width:90%; padding:0 5%;}
   #pollOptions,
   #pollGraph {float:none; width:auto; margin:0;}
+  #tagline h2 {padding:10px 0 0;}
   #pollOptions {margin-bottom:30px;}
+  #pollQuestions {margin-bottom:25px;}
   #socialLogin {width:92%; padding:0 4% 4%; height:auto;}
   #socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
 }

@@ -1,6 +1,8 @@
 #pollQuestions.wrap
 	h3 = poll.title
 	h4 Subtitle
+	p
+		a.twitter-share-button(href="https://twitter.com/share") Tweet
 
 #poll.wrap
 	#pollOptions
@@ -13,8 +15,8 @@
 					label(for="votePoll" + key)= opt.title
 
 		p
-			button.cta(type="submit")
-				strong Vote
+			a.cta
+				strong Vote Now!
 
 	#pollGraph
 	
