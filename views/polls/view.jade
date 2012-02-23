@@ -1,11 +1,8 @@
-#poll.wrap(class=(auth) ? "loggedIn" : "notLoggedIn")
-	#twitter-login(style="float: right;")
-		a(href='/login/twitter', style='border: 0px')
-			img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
+#pollQuestions.wrap
+	h3 = poll.title
+	h4 Subtitle
 
-	#pollQuestions
-		h3= poll.title
-		h4
+#poll.wrap(class=(auth) ? "loggedIn" : "notLoggedIn")
 	
 	#pollOptions
 		ul
@@ -21,6 +18,14 @@
 				strong Vote
 
 	#pollGraph
+	
+	#socialLogin
+		p
+			strong You need to be logged-in in order to vote
+			span#twitter-login
+				a(href='/login/twitter') Twitter
+			span#facebook-login
+				a(href='#') Facebook
 
 #pollSnippet.wrap
 	h5 Paste this code on your website to show the poll:
