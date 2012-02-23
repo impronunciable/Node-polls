@@ -8,18 +8,20 @@
 		h5 Create a new poll
 
 		form(action="/polls/create", method="POST", id="create_poll")
-			p
-				label(for="title") Title
-				input(type="text", name="title", id="title")
+		
+			fieldset
 			
-			p
-				label(for="subtitle") Subtitle
-				input(type="text", name="subtitle", id="subtitle")
-
-			fieldset(class="poll_options")
-			
-				legend Poll Options
+				p
+					label(for="title") Title
+					input(type="text", name="title", id="title")
 				
+				p
+					label(for="subtitle") Description 
+						em (Optional)
+					input(type="text", name="subtitle", id="subtitle")
+			
+			.poll_options
+			
 				p
 					label(for="options[]") Option 1
 					input(type="text", name="options[]")
@@ -28,11 +30,12 @@
 					input(type="text", name="options[]")
 			
 				p
-					a.add-option(href="#") Add another option
+					a.add-option(href="#") + Add another option
 			
 				p
 					button.cta(type="submit")
 						strong Create my Poll!
+					
 	#pollGraph
 
 
