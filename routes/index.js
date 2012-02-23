@@ -28,7 +28,7 @@ var Poll = mongoose.model('Poll');
 
 app.get('/', function(req, res){
 	Poll.findOne({}).desc('updated_at').run(function(err, poll){
-		res.render('index', { title: 'InstaPolls', hot_poll: poll });
+		res.render('index', { title: 'InstaPolls', hot_poll: poll, json_poll: JSON.stringify(poll) });
 	});
 });
 
@@ -46,4 +46,8 @@ app.get('/login/facebook', function(req, res){
     return res.redirect(everyauth.facebook.entryPath());
 	}
 	res.redirect('back');
+});
+
+app.get('*', function(req, res){
+  res.send('what???', 404);
 });

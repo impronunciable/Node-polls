@@ -41,6 +41,7 @@
                 text: 'Votes'
             }
         },
+				legend : false,
         plotOptions: {
             column: {
                 cursor: 'pointer',
@@ -83,7 +84,7 @@
 			$(this).children('span').eq(0).css('background',colors[i]);
 		});
 
-		$('button.cta').click(function(e){
+		$('a#vote-submit').click(function(e){
 			e.preventDefault();
 			var checked_option = $('#pollOptions input:checked').eq(0);
 			if(!checked_option) return false;

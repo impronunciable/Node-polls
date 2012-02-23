@@ -18,7 +18,7 @@ app.post('/polls/create', function(req, res){
 		if(option.length)	no_empty.push({ title: option});
 	});
 
-	if(req.body.options && no_empty >= 2){
+	if(req.body.options && no_empty.length >= 2){
 		// New Poll instance
 		var poll = new Poll();
 	

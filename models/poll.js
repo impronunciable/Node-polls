@@ -22,7 +22,7 @@ var Option = new Schema({
 
 var Poll = new Schema({
 		created_at	: { type: Date, default: Date.now }
-	,	updated_at	: { type: Date, default: Date.now }
+	,	updated_at	: Date
 	, title 			: { type: String, required: true }
 	, subtitle 		: String
 	, short_url 	: String

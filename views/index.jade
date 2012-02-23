@@ -2,6 +2,7 @@
 	h3 The easiest way to get feedback
 	h4 in real time and make up your mind about anything!
 
+
 #poll.wrap
 	#newPoll
 	
@@ -35,14 +36,20 @@
 				p
 					button.cta(type="submit")
 						strong Create my Poll!
-					
-	#pollGraph
-	
-		h5 Hot Poll Right Now
-		p El Poll
-		p
-			a(href="/") Participate in this poll
 
+	-if(hot_poll) {					
+			h5 Hot Poll Right Now
+			p #{hot_poll.title}
+			p
+				a(href="/polls/"+hot_poll._id) Participate in this poll
+
+			#pollGraph
+			script(type="text/javascript")
+				var poll = $.parseJSON('!{json_poll}');
+			script(type="text/javascript", src="/socket.io/socket.io.js")
+			script(type="text/javascript", src="/js/highcharts.js")
+			script(type="text/javascript", src="/js/poll.js")
+	- }
 
 script(type="text/javascript")
 	$(function(){
@@ -54,3 +61,4 @@ script(type="text/javascript")
 			$(this).parent().before(option);
 		});
 	});
+
