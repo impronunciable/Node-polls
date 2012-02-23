@@ -12,7 +12,8 @@ var mongoose = require('mongoose')
 
 var User = new Schema({
 		data			 :	String
-	, tw_id 		 : { type: Number, required: true }
+	, tw_id 		 :  String
+	, fb_id 		 :  String
 	, name 			 : String
 	, created_at : { type: Date, default: Date.now }
 });

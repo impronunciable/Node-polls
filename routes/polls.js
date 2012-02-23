@@ -51,10 +51,10 @@ app.get('/polls/:poll_id',  function(req, res){
 
 app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 	if(req.session && req.session.user){
-		Poll.findOne({ '_id': req.params.poll_id, 'voters': { '$nin' : [req.session.user._id] } }, function(err, poll){
+		Poll.findOne({ '_id': req.params.poll_id, 'voters': { '$nin' : [req.session.user] } }, function(err, poll){
 			if(!err && poll){
 				poll.opts.id(req.params.opt_id).votes++;
-				poll.voters.push(req.session.user._id);
+				poll.voters.push(req.session.user);
 				opt_index = -1;
 				poll.opts.forEach(function(opt, index){
 					if(opt._id == req.params.opt_id) opt_index = index;
@@ -67,6 +67,6 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 			}
 		});
 	} else {
-		res.json("Tenes que loggearte en twitter antes de votar.");
+		res.json("Tenes que loggearte antes de votar.");
 	}
 });

@@ -2,8 +2,7 @@
 	h3 = poll.title
 	h4 Subtitle
 
-#poll.wrap(class=(auth) ? "loggedIn" : "notLoggedIn")
-	
+#poll.wrap
 	#pollOptions
 		ul
 			each opt,key in poll.opts
@@ -19,13 +18,17 @@
 
 	#pollGraph
 	
-	#socialLogin
-		p
-			strong You need to be logged-in in order to vote
-			span#twitter-login
-				a(href='/login/twitter') Twitter
-			span#facebook-login
-				a(href='#') Facebook
+	-if(!auth){
+		#socialLogin
+			p
+				em You need to be logged-in in order to vote
+				span#twitter-login
+					a.cta(href='/login/twitter') 
+						strong Twitter
+				span#facebook-login
+					a.cta(href='/login/facebook') 
+						strong Facebook
+	-}
 
 #pollSnippet.wrap
 	h5 Paste this code on your website to show the poll:

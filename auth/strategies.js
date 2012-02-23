@@ -36,13 +36,13 @@ everyauth.twitter
 				new_user.data = JSON.stringify(twuser);	
 				new_user.tw_id = twuser.id;
 				new_user.name = twuser.name;
-				new_user.save(function(user_attrs){
-					session.user = user_attrs;
-					promise.fulfill(user_attrs);
+				new_user.save(function(err, usr){
+					session.user = usr._id;
+					promise.fulfill(usr._id);
 				});			
 			} else {
-				session.user = user;
-				promise.fulfill(user);
+				session.user = user._id;
+				promise.fulfill(user._id);
 			}
 		})
 		return promise;
@@ -55,3 +55,42 @@ everyauth.twitter
     res.redirect(redirectTo);
   })
 	.moduleTimeout(10000);
+
+/*
+ * Facebook login
+ */
+
+everyauth.facebook
+  .appId(config.fb.appId)
+  .appSecret(config.fb.appSecret)
+  .handleAuthCallbackError( function (req, res) {
+		res.redirect('back');
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokExtra, fbuser) {
+		var promise = this.Promise();
+		User.findOne({fb_id: fbuser.id}, function(err, user){
+			if(!user){
+				var new_user = new User();
+				new_user.data = JSON.stringify(fbuser);	
+				new_user.fb_id = fbuser.id;
+				new_user.name = fbuser.name;
+				new_user.save(function(err, usr){
+					session.user = usr._id;
+					promise.fulfill(usr._id);
+				});			
+			} else {
+				session.user = user._id;
+				promise.fulfill(user._id);
+			}
+		})
+		return promise;
+  })
+	.sendResponse( function (res, data) {
+    var session = data.session;
+    var redirectTo = session.redirectTo;
+    delete session.redirectTo;
+    res.redirect(redirectTo);
+  })
+	.entryPath('/auth/facebook')
+  .redirectPath('/');
+

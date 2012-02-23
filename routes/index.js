@@ -22,10 +22,17 @@ app.get('/', function(req, res){
 });
 
 app.get('/login/twitter', function(req, res){
-
 	if(!req.loggedIn){
 		req.session.redirectTo = req.headers.referer || "/";
     return res.redirect(everyauth.twitter.entryPath());
+	}
+	res.redirect('back');
+});
+
+app.get('/login/facebook', function(req, res){
+	if(!req.loggedIn){
+		req.session.redirectTo = req.headers.referer || "/";
+    return res.redirect(everyauth.facebook.entryPath());
 	}
 	res.redirect('back');
 });

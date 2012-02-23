@@ -22,7 +22,7 @@ var Option = new Schema({
 
 var Poll = new Schema({
 		created_at	: { type: Date, default: Date.now }
-	, title 			: String
+	, title 			: { type: String, required: true }
 	, voters 		  : { type: [ObjectId], default: [] }
 	, opts 				: [Option]
 });
