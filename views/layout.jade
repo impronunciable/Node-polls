@@ -15,6 +15,19 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 					a(href="/") InstaPoll.in
 			#tagline
 				h2 Create easy &amp; fast live polls
+				
+			#siteShare
+				ul
+					li
+						<g:plusone size="medium"></g:plusone>
+					li
+						a.twitter-share-button(href="https://twitter.com/share") Tweet
+					li
+						<iframe src="//www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+						
+			#addNewPollCta
+				a.cta(href="/")
+					strong + Create a new Poll
 
 		!= body
 
@@ -23,4 +36,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 				p InstaPolls, all rights reserved 2012 &copy; Made by 
 					a(href="http://vulsai.com") Vulsai
 					
-	script(type="text/javascript") !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs";
+	script(type="text/javascript")
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs";
+	script(type="text/javascript")
+		(function(){
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
