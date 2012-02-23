@@ -5,20 +5,21 @@
 		a.twitter-share-button(href="https://twitter.com/share") Tweet
 
 #poll.wrap
-	#pollOptions
-		ul
-			each opt,key in poll.opts
-				li
-					span.refColor
-						span
-					input(type="radio", name="votePoll", id="votePoll" + key)
-					label(for="votePoll" + key)= opt.title
+	-if(!voter){
+		#pollOptions
+			ul
+				each opt,key in poll.opts
+					li
+						span.refColor
+							span
+						input(type="radio", name="votePoll", id="votePoll" + key)
+						label(for="votePoll" + key)= opt.title
 
-		p
-			a.cta#vote-submit
-				strong Vote Now!
-
-	#pollGraph
+			p
+				a.cta#vote-submit
+					strong Vote Now!
+	-}
+	#pollGraph(style=(voter) ? "width:100%" : "")
 	
 	-if(!auth){
 		#socialLogin

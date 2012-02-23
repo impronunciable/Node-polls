@@ -48,7 +48,9 @@ app.get('/polls/:poll_id',  function(req, res){
 		if(err || !poll){
 			res.redirect('back');
 		} else {
-			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user)});
+			var voter = req.session && req.session.user && (poll.voters.indexOf(req.session.user == -1));
+			voter = voter || null;
+			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user), voter: voter});
 			res.render('polls/view');
 		}
 	});

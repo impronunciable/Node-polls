@@ -103,7 +103,6 @@
 			chart.series[0].data[data.option_index].update(++chart.series[0].data[data.option_index].y);
 			$('#pollOptions').fadeOut(function(){
 				$('#pollGraph,.highcharts-container').animate({width: '100%'});
-				$(window).resize();
 			});
 		});
 	});
