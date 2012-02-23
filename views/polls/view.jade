@@ -35,7 +35,7 @@
 
 #pollSnippet.wrap
 	h5 Paste this code on your website to show the poll:
-	pre #{'<iframe src="local.host:3000/polls/'}#{poll._id}#{'" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>'}
+	pre #{'<iframe src="'}#{poll_domain}#{'/widget/'}#{poll._id}#{'" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>'}
 	h5 Or share this poll in:
 	p
 		<g:plusone size="medium" href="http://instapoll.in"></g:plusone>
