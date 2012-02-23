@@ -9,7 +9,8 @@ var app = module.parent.parent.exports;
  * Require poll model
  */
 
-var Poll = require('../models/poll');
+var Poll = require('../models/poll')
+	,	utils = require('../utils.js');
 
 app.post('/polls/create', function(req, res){
 	if(req.body.options && req.body.options.length >= 2){
@@ -23,6 +24,7 @@ app.post('/polls/create', function(req, res){
 
 		// Add a poll title
 		poll.title = req.body.title;
+		poll.short_url = utils.shorten_url();	
 
 		// Save the instance to the db
 		poll.save(function(err, poll){
@@ -69,4 +71,14 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 	} else {
 		res.json("Tenes que loggearte antes de votar.");
 	}
+});
+
+app.get('/p/:short_url', function(req, res){
+	Poll.findOne({'short_url' : req.params.short_url}, function(err, poll){
+		if(poll || !err) {
+			res.redirect('/polls/' + poll._id);
+		} else {
+			res.redirect('/');
+		}
+	});
 });
