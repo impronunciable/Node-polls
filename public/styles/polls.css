@@ -41,7 +41,7 @@
 			#header, #poll, #socialLogin p {overflow:hidden;}
 			
 			/*- Hide text -*/
-			#logo a, .refColor, .refColor span {display:block; font-size:0; text-indent:-9999em;}
+			#logo a, .refColor, .refColor span, #pollOptions .remove {display:block; font-size:0; text-indent:-9999em;}
 			
 			/*- Border radius -*/
 			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
@@ -113,7 +113,9 @@
 				#pollOptions label span a:hover {color:#000;}
 				#pollOptions label:hover {background:#FAFAFA; color:#333;}
 				#pollOptions label:hover a {color:#900;}
-				#pollOptions p {padding-top:15px;}
+				#pollOptions p {padding-top:15px; position:relative;}
+				#pollOptions .remove {width:26px; height:25px; background:url(../images/icons/close.png) no-repeat 0 0; top:15px; right:10px; z-index:1;}
+				#pollOptions .remove:hover {background-position:0 -26px;}
 				
 				.refColor {width:16px; height:16px; background:#C00; position:absolute; top:13px; left:0; z-index:1;}
 					.refColor span {width:100%; height:100%; background:url(../images/bgs/refcolor.png) repeat-x 0 0;}
