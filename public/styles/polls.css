@@ -25,7 +25,8 @@
 			#pollQuestions h3,
 			#pollQuestions h4,
 			#pollSnippet h5,
-			#socialLogin em {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
+			#socialLogin em,
+			#newPoll h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
 			
 			button::-moz-focus-inner {padding:0; border:0}
 			
@@ -90,6 +91,13 @@
 					.refColor span {width:100%; height:100%; background:url(../images/bgs/refcolor.png) repeat-x 0 0;}
 				
 			#pollGraph {float:right; width:50%;}
+			
+			#newPoll {float:left; width:46%; margin-right:3%;}
+				#newPoll label {display:block;}
+				#newPoll p {padding-bottom:15px;}
+				#newPoll input {padding:8px 2%; width:96%;}
+				
+			#newPoll h5 {color:#C62C16; font-size:1.75em; padding-bottom:15px;}
 			
 			
 		#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
