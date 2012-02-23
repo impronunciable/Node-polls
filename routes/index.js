@@ -49,6 +49,10 @@ app.get('/login/facebook', function(req, res){
 	res.redirect('back');
 });
 
+app.get('/terms', function(req, res){
+	res.render('terms');
+});
+
 app.error(function(err, req, res, next){
 	res.redirect('/');
 });

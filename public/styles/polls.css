@@ -149,7 +149,8 @@
 			
 			#pollSnippet {clear:both; padding:30px 0 25px; border-top:2px solid #EEE;}
 				#pollSnippet h5 {text-transform:uppercase; color:#888; font-weight:normal; text-align:center; padding:10px 0;}
-				#pollSnippet pre {padding:15px; text-align:center; color:#7D5822; margin-bottom:25px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
+				#pollSnippet pre {padding:15px; overflow:hidden; text-align:center; color:#7D5822; margin-bottom:15px; font:1em Monaco, Courier New, Courier, monospace; background:#FFFFCC; border:1px solid #FFDBB7;}
+				#pollSnippet:hover pre {overflow:auto;}
 				#pollSnippet p {padding:20px 0 10px; text-align:center;}
 				#pollSnippet #___plusone_1,
 				#pollSnippet .twitter-share-button {position:relative; top:-13px;}
@@ -184,8 +185,12 @@
 				#features li {float:left; width:32%;}
 				#features li div {padding:6%; background:#FAFAFA; border:1px solid #EEE;}
 				#features li p {line-height:140%; font-size:1.083em; color:#666;}
-				#features h6 {font-size:1.5em; padding-bottom:10px;}
+				#features h6 {font-size:1.5em; padding:0 0 10px 35px;}
+				
+				#features #feature1 h6 {background:url(../images/icons/easy.gif) no-repeat 0 0;}
 				#features #feature2 {margin:0 2%;}
+				#features #feature2 h6 {background:url(../images/icons/realTime.gif) no-repeat 0 0;}
+				#features #feature3 h6 {background:url(../images/icons/mobile.gif) no-repeat 0 0;}
 				
 			
 /*- End Main Content ------------------------------------------------------*/
@@ -215,15 +220,14 @@
 	#poll-widget #footer {background:none;}
 	#poll-widget #footer a:hover {color:#000;}
 	
+	
 /*- End Widget ------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
-
 /*- Small and mobile resolutions ------------------------------------------*/
 	
 	
 	@media screen and (max-width:1100px){
 		#siteShare {clear:left; padding:15px 0 0;}
-		#pollSnippet pre {overflow:auto;}
 	}
 	
 	@media screen and (max-width:800px){
