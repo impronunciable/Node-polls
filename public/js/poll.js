@@ -101,6 +101,10 @@
 		socket.on('vote proc', function(data){
 			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);
 			chart.series[0].data[data.option_index].update(++chart.series[0].data[data.option_index].y);
+			$('#pollOptions').fadeOut(function(){
+				$('#pollGraph,.highcharts-container').animate({width: '100%'});
+				$(window).resize();
+			});
 		});
 	});
 
