@@ -4,7 +4,8 @@
  */
 
 var everyauth = require('everyauth')
-	, mongoose = require('mongoose');
+	, mongoose = require('mongoose')
+	, config = require('../config.json');
 
 /*
  * Models
@@ -28,7 +29,7 @@ var Poll = mongoose.model('Poll');
 
 app.get('/', function(req, res){
 	Poll.findOne({}).desc('updated_at').run(function(err, poll){
-		res.render('index', { title: 'InstaPolls', hot_poll: poll, json_poll: JSON.stringify(poll) });
+		res.render('index', { title: 'InstaPolls', hot_poll: poll, json_poll: JSON.stringify(poll), poll_domain: config.host.domain });
 	});
 });
 

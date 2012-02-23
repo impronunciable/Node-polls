@@ -14,4 +14,7 @@
 	,	"session" : {
 			"secret"	: "reptaaar"
 	}
+	, "host" : {
+				"domain" : "http://local.host:3000" 
+		}
 }

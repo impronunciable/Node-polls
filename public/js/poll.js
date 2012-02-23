@@ -1,5 +1,5 @@
 	$(function(){
-		var socket = io.connect('http://local.host');
+		var socket = io.connect(poll_domain);
 		socket.emit('join poll', poll._id);
 
     var colors = Highcharts.getOptions().colors,

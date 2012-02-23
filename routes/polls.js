@@ -10,7 +10,8 @@ var app = module.parent.parent.exports;
  */
 
 var Poll = require('../models/poll')
-	,	utils = require('../utils.js');
+	,	utils = require('../utils.js')
+	, config = require('../config.json');
 
 app.post('/polls/create', function(req, res){
 	var no_empty = [];
@@ -49,7 +50,7 @@ app.get('/polls/:poll_id',  function(req, res){
 			res.redirect('back');
 		} else {
 			var voter = ( !(req.session && req.session.user) ||  (poll.voters.indexOf(req.session.user) == -1)) ? false : true;
-			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user), voter: voter});
+			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user), voter: voter, poll_domain: config.host.domain});
 			res.render('polls/view');
 		}
 	});
