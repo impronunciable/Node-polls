@@ -24,6 +24,7 @@ app.post('/polls/create', function(req, res){
 
 		// Add a poll title
 		poll.title = req.body.title;
+		poll.subtitle = req.body.subtitle;
 		poll.short_url = utils.shorten_url();	
 
 		// Save the instance to the db

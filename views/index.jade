@@ -16,19 +16,19 @@
 				label(for="subtitle") Subtitle
 				input(type="text", name="subtitle", id="subtitle")
 
-			fieldset
+			fieldset(class="poll_options")
 			
 				legend Poll Options
 				
 				p
-					label(for="options[]") Option
+					label(for="options[]") Option 1
 					input(type="text", name="options[]")
 				p
-					label(for="options[]") Option
+					label(for="options[]") Option 2
 					input(type="text", name="options[]")
 			
 				p
-					a(href="#") Add another option
+					a.add-option(href="#") Add another option
 			
 				p
 					button.cta(type="submit")
@@ -36,12 +36,14 @@
 	#pollGraph
 
 
-script()
+script(type="text/javascript")
 	$(function(){
-		$('#create_poll button').click(function(e){
+		$('.add-option').click(function(e){
 			e.preventDefault();
-			var option = $('#create_poll input[type=text]:last').parent().clone();
-			option.val('');
+			var opt_length = $('.poll_options input[type=text]').length + 1;
+			var option = $('.poll_options input[type=text]:last').parent().clone();
+			console.log(option);
+			option.children('input').attr('value','').siblings('label').text('Option ' + opt_length);
 			$(this).parent().before(option);
 		});
 	});

@@ -23,6 +23,7 @@ var Option = new Schema({
 var Poll = new Schema({
 		created_at	: { type: Date, default: Date.now }
 	, title 			: { type: String, required: true }
+	, subtitle 		: String
 	, short_url 	: String
 	, voters 		  : { type: [ObjectId], default: [] }
 	, opts 				: [Option]
