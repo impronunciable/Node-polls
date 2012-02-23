@@ -31,7 +31,8 @@
 			#pollSnippet h5,
 			#socialLogin em,
 			#newPoll h5,
-			#pollGraph h5 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
+			#pollGraph h5,
+			#features h6 {font-weight:normal; font-family:'Varela Round', Arial, Helvetica, sans-serif;}
 			
 			/*- Resolution -*/			
 			.wrap {width:85%; margin:0 auto;}
@@ -43,7 +44,7 @@
 			#logo a, .refColor, .refColor span {display:block; font-size:0; text-indent:-9999em;}
 			
 			/*- Border radius -*/
-			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
+			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
 			
 			/*- Box shadows -*/		
 			#socialLogin p {-moz-box-shadow:0 0 3px rgba(0,0,0,0.3); -webkit-box-shadow:0 0 3px rgba(0,0,0,0.3); -o-box-shadow:0 0 3px rgba(0,0,0,0.3); box-shadow:0 0 3px rgba(0,0,0,0.3);}
@@ -178,9 +179,14 @@
 				#twitter-login .cta {background:#2679B5 url(../images/bgs/cta-tw.png) repeat-x 0 0; border-color:#1E6091;}
 				#facebook-login .cta {background:#2D4579 url(../images/bgs/cta-fb.png) repeat-x 0 0; border-color:#20325A;}
 				
-			#features {clear:both; padding-top:40px;}
-				#features ul {padding-top:30px; border-top:2px solid #EEE;}
-			
+			#features {clear:both; padding-top:60px;}
+				#features h5 {padding:30px 0; text-transform:uppercase; color:#888; font-weight:normal; text-align:center; border-top:2px solid #EEE;}
+				#features li {float:left; width:32%;}
+				#features li div {padding:6%; background:#FAFAFA; border:1px solid #EEE;}
+				#features li p {line-height:140%; font-size:1.083em; color:#666;}
+				#features h6 {font-size:1.5em; padding-bottom:10px;}
+				#features #feature2 {margin:0 2%;}
+				
 			
 /*- End Main Content ------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
@@ -197,6 +203,21 @@
 /*- End Footer ------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 
+/*- Widget ----------------------------------------------------------------*/
+
+	
+	#poll-widget .wrap {width:96%; padding:0 2%;}
+	#poll-widget #header {padding:20px 2%;}
+	#poll-widget #pollQuestions {text-align:left; padding:15px 2%;}
+	#poll-widget #pollQuestions h3,
+	#poll-widget #pollQuestions h4 {padding:0; display:inline;}
+	#poll-widget #pollQuestions h3 {font-size:1.5em; padding-right:10px; margin-right:10px; border-right:1px solid #DDD;}
+	#poll-widget #footer {background:none;}
+	#poll-widget #footer a:hover {color:#000;}
+	
+/*- End Widget ------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
 /*- Small and mobile resolutions ------------------------------------------*/
 	
 	
@@ -207,7 +228,8 @@
 	
 	@media screen and (max-width:800px){
 	 
-		#siteShare {clear:both;}
+		#siteShare {clear:both; padding:15px 0;}
+		#addNewPollCta {clear:both; float:none;}
 		.wrap {width:90%; padding:0 5%;}
 		#newPoll,
 		#pollOptions,
@@ -217,6 +239,9 @@
 		#pollQuestions {margin-bottom:25px;}
 		#socialLogin {width:92%; padding:0 4% 4%; height:auto;}
 		#socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
+		#newPoll input {width:94%;}
+		#pollQuestions h3 {font-size:2em;}
+		#pollQuestions h4 {font-size:1.25em;}
 	  
 	}
 	
