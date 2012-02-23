@@ -38,17 +38,19 @@
 						strong Create my Poll!
 
 	-if(hot_poll) {					
-			h5 Hot Poll Right Now
-			p #{hot_poll.title}
-			p
-				a(href="/polls/"+hot_poll._id) Participate in this poll
 
 			#pollGraph
-			script(type="text/javascript")
-				var poll = $.parseJSON('!{json_poll}');
-			script(type="text/javascript", src="/socket.io/socket.io.js")
-			script(type="text/javascript", src="/js/highcharts.js")
-			script(type="text/javascript", src="/js/poll.js")
+				
+				h5 Hot Poll Right Now: #{hot_poll.title}
+				
+				script(type="text/javascript")
+					var poll = $.parseJSON('!{json_poll}');
+				script(type="text/javascript", src="/socket.io/socket.io.js")
+				script(type="text/javascript", src="/js/highcharts.js")
+				script(type="text/javascript", src="/js/poll.js")
+			
+				p
+					a(href="/polls/"+hot_poll._id) Participate in this poll
 	- }
 
 script(type="text/javascript")
