@@ -45,7 +45,7 @@ app.post('/polls/create', function(req, res){
 
 app.get('/polls/:poll_id',  function(req, res){
 	Poll.findById(req.params.poll_id, function(err, poll){
-		if(err){
+		if(err || !poll){
 			res.redirect('back');
 		} else {
 			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user)});

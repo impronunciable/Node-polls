@@ -48,6 +48,6 @@ app.get('/login/facebook', function(req, res){
 	res.redirect('back');
 });
 
-app.get('*', function(req, res){
-  res.send('what???', 404);
+app.error(function(err, req, res, next){
+	res.redirect('/');
 });
