@@ -270,6 +270,8 @@
 		#pollQuestions h3 {font-size:2em;}
 		#pollQuestions h4 {font-size:1.25em;}
 		#features li {float:none; width:auto; margin-bottom:10px;}
+		#features #feature2 {margin:0 0 10px 0;}
+		#chart {position:relative; left:-20px;}
 	  
 	}
 	
