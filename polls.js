@@ -51,6 +51,11 @@ require('./routes')
 
 var io = sio.listen(app);
 
+io.configure(function(){
+	io.enable('browser client minification');
+	io.enable('browser client gzip');
+});
+
 io.sockets.on('connection', function(socket){
 	socket.on('join poll', function(poll_id){
 		socket.join('poll_'+poll_id);
