@@ -15,7 +15,7 @@
 			"secret"	: "reptaaar"
 	}
 	, "host" : {
-				"domain" : "http://local.host:3000" 
+				"ip" : "http://local.host:3000" 
 			,	"port"	 : 3000
 		}
 }
