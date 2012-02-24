@@ -84,6 +84,7 @@ script(type="text/javascript")
 			$(this).parent().before(option);
 		});
 		$('a.remove').live("click", function(){
+			e.preventDefault();
 			$(this).parent().slideUp(function(){
 				$(this).remove();
 			});
