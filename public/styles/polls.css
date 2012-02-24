@@ -140,8 +140,8 @@
 				#newPoll fieldset {padding:5% 5% 2%; margin-bottom:25px; background:#FFFFE5; border:1px solid #FFDBB7;}
 				#newPoll legend {display:block; position:static; font-weight:bold;}
 				#newPoll button {float:right; margin-bottom:3%;}
-				#newPoll .remove {width:20px; height:20px; cursor:pointer; background:url(../images/icons/close.png) no-repeat 0 0; position:absolute; top:25px; right:5px; z-index:1;}
-				#newPoll .remove:hover {background-position:0 -26px;}
+				#newPoll .remove {width:20px; height:20px; cursor:pointer; background:url(../images/icons/close.png) no-repeat 0 0; position:absolute; top:30px; right:10px; z-index:1;}
+				#newPoll .remove:hover {background-position:0 -20px;}
 			
 			/*------------------*/
 			/* GRAPH			*/
