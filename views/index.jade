@@ -83,7 +83,7 @@ script(type="text/javascript")
 			option.children('input').attr('value','').attr('id','option'+option_num).after('<a href="#" class="remove">close</a>').siblings('label').text('Option ' + option_num).attr('for','option'+option_num);
 			$(this).parent().before(option);
 		});
-		$('a.remove').live("click", function(){
+		$('a.remove').live("click", function(e){
 			e.preventDefault();
 			$(this).parent().slideUp(function(){
 				$(this).remove();
