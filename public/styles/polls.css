@@ -134,13 +134,13 @@
 				#newPoll h5 em {font-size:0.75em; color:#999; padding-left:5px;}
 				#newPoll label {display:block; font-weight:bold; color:#666; font-size:1.083em; padding-bottom:7px;}
 				#newPoll label em {font-weight:normal;}
-				#newPoll p {padding-bottom:15px;}
+				#newPoll p {padding-bottom:15px; position:relative;}
 				#newPoll p a {color:#468700; font-weight:bold; font-size:1.083em;}
 				#newPoll input {padding:8px 10px; font-size:1.167em; color:#666; width:96%; background:#FFF url(../images/bgs/input.gif) repeat-x 0 0; border:1px solid #CCC; border-top-color:#999;}
 				#newPoll fieldset {padding:5% 5% 2%; margin-bottom:25px; background:#FFFFE5; border:1px solid #FFDBB7;}
 				#newPoll legend {display:block; position:static; font-weight:bold;}
 				#newPoll button {float:right; margin-bottom:3%;}
-				#newPoll .remove {width:26px; height:25px; background:url(../images/icons/close.png) no-repeat 0 0; top:15px; right:10px; z-index:1;}
+				#newPoll .remove {width:20px; height:20px; cursor:pointer; background:url(../images/icons/close.png) no-repeat 0 0; position:absolute; top:25px; right:5px; z-index:1;}
 				#newPoll .remove:hover {background-position:0 -26px;}
 			
 			/*------------------*/
