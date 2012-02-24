@@ -35,7 +35,7 @@ everyauth.twitter
 				var new_user = new User();
 				try{
 					new_user.data = JSON.stringify(twuser);	
-				} catch(){}
+				} catch(e){}
 				new_user.tw_id = twuser.id;
 				new_user.name = twuser.name;
 				new_user.save(function(err, usr){
@@ -75,7 +75,7 @@ everyauth.facebook
 				var new_user = new User();
 				try{
 					new_user.data = JSON.stringify(fbuser);	
-				} catch{}
+				} catch(e){}
 				new_user.fb_id = fbuser.id;
 				new_user.name = fbuser.name;
 				new_user.save(function(err, usr){

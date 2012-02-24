@@ -40,7 +40,7 @@
 		a.twitter-share-button(href="https://twitter.com/share") Tweet
 		<iframe src="//www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=320&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:35px;" allowTransparency="true"></iframe>
 	h5 or Paste this code on your website to show the poll:
-	pre #{'<div style="width:350px;height:620px;overflow:auto;"><iframe src="'}#{poll_domain}#{'/widget/'}#{poll._id}#{'" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="350" height="620" style="overflow:auto;"></iframe></div>'}
+	pre #{'<script type="text/javascript" id="'}#{poll._id}#{'" src="http://instapoll.in/js/w.js"></script>'}
 
 #disqus_thread.wrap
 script()

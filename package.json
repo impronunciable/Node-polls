@@ -1,12 +1,18 @@
 {
-    "name": "Node-polls"
-  , "version": "0.0.1"
-  , "private": false
-  , "dependencies": {
-      "express": "2.5.1"
-    , "jade": ">= 0.0.1"
-    , "socket.io": "0.8.7"
-    , "mongoose": "2.5.5"
-    , "everyauth": "0.2.30"
-  }
+    "name" : "polls"
+  , "version"	: "0.0.1"
+  , "description"	: "Easy-to-implement poll system powered by node.js, express, socket.io and mongodb"
+	,	"keywords" : ["polls","socket.io","express","realtime"]
+	,	"author" : "Dan Zajdband <dan.zajdband@gmail.com>"
+	, "repository" : {
+				"type": "git"
+			,	"url": "git@github.com:danzajdband/Node-polls.git"
+		}
+  , "dependencies" : {
+    	  "express" : "2.5.1"
+			, "jade" : ">= 0.0.1"
+    	, "socket.io" : "0.8.7"
+    	, "mongoose" : "2.5.5"
+    	, "everyauth" : "0.2.30"
+  	}
 }
