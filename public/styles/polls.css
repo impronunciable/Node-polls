@@ -151,7 +151,7 @@
 				#pollGraph h5 {color:#C62C16; font-size:1.75em; padding-bottom:30px;}
 				#pollGraph h5 a {color:#468700;}
 				#pollGraph h5 a:hover {color:#000;}
-				#chat {background:url(../images/icons/loading.gif) no-repeat center center;}
+				#chart {min-height:200px; background:url(../images/icons/loading.gif) no-repeat center center;}
 			
 			/*------------------*/
 			/* SNIPPET			*/
