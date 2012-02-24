@@ -27,11 +27,9 @@
 				p
 					label(for="option1]") Option 1
 					input(type="text", id="option1", name="options[]")
-					a.remove("#") close
 				p
 					label(for="option2") Option 2
 					input(type="text", id="option2", name="options[]")
-					a.remove("#") close
 
 				p
 					a.add-option(href="#") + Add another option
@@ -81,11 +79,12 @@ script(type="text/javascript")
 			e.preventDefault();
 			var opt_length = $('.poll_options input[type=text]').length + 1;
 			var option = $('.poll_options input[type=text]:last').parent().clone();
-			var option_num = parseInt(option.siblings('label').text().split(' ')[1]) + 1;
-			option.children('input').attr('value','').attr('id','option'+option_num)siblings('label').text('Option ' + option_num).attr('for','option'+option_num);
+			var option_num = parseInt(option.children('label').text().split(' ')[1]) + 1;
+			option.children('input').attr('value','').attr('id','option'+option_num).after('<a href="#" class="remove">close</a>').siblings('label').text('Option ' + option_num).attr('for','option'+option_num);
 			$(this).parent().before(option);
 		});
-		$('a.remove').live("click", function(){
+		$('a.remove').live("click", function(e){
+			e.preventDefault();
 			$(this).parent().slideUp(function(){
 				$(this).remove();
 			});
