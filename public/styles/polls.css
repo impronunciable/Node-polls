@@ -75,7 +75,7 @@
 			#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
 				
 			/*- Site Share -*/
-			#siteShare {padding:7px 0 0 20px;}
+			#siteShare {padding:7px 0 0 20px; height:40px; overflow:hidden;}
 				#siteShare li {float:left; margin-right:10px;}
 				
 			/*- Add new poll -*/
