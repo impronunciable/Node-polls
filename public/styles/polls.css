@@ -44,7 +44,7 @@
 			#logo a, .refColor, .refColor span, #pollOptions .remove {display:block; font-size:0; text-indent:-9999em;}
 			
 			/*- Border radius -*/
-			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
+			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div, #pollQuestions span {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
 			
 			/*- Box shadows -*/		
 			#socialLogin p {-moz-box-shadow:0 0 3px rgba(0,0,0,0.3); -webkit-box-shadow:0 0 3px rgba(0,0,0,0.3); -o-box-shadow:0 0 3px rgba(0,0,0,0.3); box-shadow:0 0 3px rgba(0,0,0,0.3);}
@@ -98,9 +98,14 @@
 			/* QUESTION			*/
 			/*------------------*/
 			
-			#pollQuestions {text-align:center; padding:50px 0% 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE;}
+			#pollQuestions {text-align:center; padding:50px 0% 30px; margin-bottom:50px; background:url(../images/bgs/pollTitle.gif) repeat 0 0; border-bottom:1px solid #EEE; position:relative;}
 				#pollQuestions h3 {font-size:3.25em; line-height:110%; padding:0 10%;}
 				#pollQuestions h4 {font-size:1.5em; line-height:130%; font-style:italic; color:#666; padding:25px 10% 20px;}
+				#pollQuestions p {position:absolute; left:0; bottom:-15px; width:100%; z-index:1;}
+				#pollQuestions span {display:block; width:20%; margin:0 auto; padding:10px; background:#FFF; border:1px solid #DDD;}
+				#pollQuestions span strong {color:#666;}
+				#pollQuestions span a {color:#468700; text-decoration:none;}
+				#pollQuestions span a:hover {color:#900; text-decoration:underline;}
 				
 			/*------------------*/
 			/* OPTIONS			*/
@@ -172,7 +177,7 @@
 			/* SOCIAL LOGIN		*/
 			/*------------------*/	
 		
-			#socialLogin {position:absolute; padding:7% 4%; top:0; left:0; width:39%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
+			#socialLogin {position:absolute; padding:7% 3%; top:0; left:0; width:41%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
 				#socialLogin p {background:#FFF; border:1px solid #CCC;}
 				#socialLogin em {display:block; font-style:normal; text-align:center; color:#999; font-size:1.5em; padding:25px 0 20px; border-bottom:1px solid #EEE;}
 				#socialLogin span {float:left; padding:5% 0 5% 5%; width:42%;}
@@ -243,8 +248,9 @@
 /*- Small and mobile resolutions ------------------------------------------*/
 	
 	
-	@media screen and (max-width:1100px){
+	@media screen and (max-width:1300px){
 		#siteShare {clear:left; padding:15px 0 0;}
+		#socialLogin span {display:block; float:none; width:auto; padding:0 5% 10px;}
 	}
 	
 	@media screen and (max-width:800px){

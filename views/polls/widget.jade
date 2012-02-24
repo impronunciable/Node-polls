@@ -17,6 +17,10 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 		#pollQuestions.wrap
 			h3= poll.title
 			h4= poll.subtitle
+			p
+				span
+					strong Short url: 
+					a(href="http://instapoll.in/p/#{poll.short_url}") http://instapoll.in/p/#{poll.short_url}
 
 		#poll.wrap
 			#pollGraph(style="width:100%")
