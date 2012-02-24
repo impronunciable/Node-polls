@@ -42,7 +42,7 @@
 	p
 		<g:plusone size="medium" href="http://instapoll.in"></g:plusone>
 		a.twitter-share-button(href="https://twitter.com/share", data-url="http://instapoll.in/p/#{poll.short_url}", data-text="Please vote and watch realtime results of my #instaPoll: #{poll.title}") Tweet
-		<iframe src="//www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=320&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:35px;" allowTransparency="true"></iframe>
+		<iframe src="//www.facebook.com/plugins/like.php?href=http://instapoll.in/p/#{poll.url}&amp;send=false&amp;layout=standard&amp;width=320&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:35px;" allowTransparency="true"></iframe>
 	h5 or Paste this code on your website to show the poll:
 	pre #{'<script type="text/javascript" id="'}#{poll._id}#{'" src="http://instapoll.in/js/w.js"></script>'}
 
