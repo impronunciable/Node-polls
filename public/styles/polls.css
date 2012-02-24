@@ -75,7 +75,7 @@
 			#tagline h2 {font-size:1.25em; color:#777; padding:14px 0 0 15px;}
 				
 			/*- Site Share -*/
-			#siteShare {padding:7px 0 0 20px;}
+			#siteShare {padding:7px 0 0 20px; height:40px; overflow:hidden;}
 				#siteShare li {float:left; margin-right:10px;}
 				
 			/*- Add new poll -*/
@@ -269,7 +269,8 @@
 		#newPoll input {width:94%;}
 		#pollQuestions h3 {font-size:2em;}
 		#pollQuestions h4 {font-size:1.25em;}
-		#pollQuestions p {position:static; width:auto; margin:10px 0;}
+		#pollQuestions p {position:static; margin:10px 0;}
+		#pollQuestions p span {width:auto;}
 		#features li {float:none; width:auto; margin-bottom:10px;}
 		#features #feature2 {margin:0 0 10px 0;}
 		#chart {position:relative; left:-20px;}
