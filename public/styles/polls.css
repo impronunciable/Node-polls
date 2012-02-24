@@ -260,7 +260,7 @@
 		.wrap {width:90%; padding:0 5%;}
 		#newPoll,
 		#pollOptions,
-		#pollGraph {float:none; width:auto; margin:0; clear:both;}
+		#pollGraph {float:none; width:auto; margin:0; padding-top:25px; clear:both;}
 		#tagline h2 {padding:10px 0 0;}
 		#pollOptions {margin-bottom:30px;}
 		#pollQuestions {margin-bottom:25px;}
@@ -269,6 +269,7 @@
 		#newPoll input {width:94%;}
 		#pollQuestions h3 {font-size:2em;}
 		#pollQuestions h4 {font-size:1.25em;}
+		#features li {float:none; width:auto; margin-bottom:10px;}
 	  
 	}
 	
