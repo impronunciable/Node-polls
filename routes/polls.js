@@ -73,11 +73,11 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 					res.json({poll_id: req.params.poll_id, option_id: req.params.opt_id, option_index: opt_index});
 				});
 			} else {
-				res.json("Estas intentando votar 2 veces en la misma encuesta.");
+				res.json("You are trying to vote twice on the same poll.");
 			}
 		});
 	} else {
-		res.json("Tenes que loggearte antes de votar.");
+		res.json("You have to login to be allowed to vote.");
 	}
 });
 
