@@ -73,4 +73,3 @@ everyauth.helpExpress(app);
 // Server listen port 3000
 
 app.listen(config.host.port,config.host.ip);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
