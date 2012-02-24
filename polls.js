@@ -7,6 +7,7 @@ var express = require('express')
   , sio = require('socket.io')
   , mongoose = require('mongoose')
 	, everyauth = require('everyauth')
+	, fs = require('fs')
 	, config = require('./config.json');
 
 var app = module.exports = express.createServer();
@@ -28,7 +29,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-	app.use(express.logger({stream: function(){fs.createWriteStream('./log_file.log', {flags: 'a'})}}));
+	app.use(express.logger({stream:fs.createWriteStream('./log_file.log', {flags: 'a'})}));
   app.use(express.session({ secret: config.session.secret }));
   app.use(everyauth.middleware());
   app.use(app.router);
