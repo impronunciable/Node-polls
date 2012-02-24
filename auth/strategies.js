@@ -10,7 +10,9 @@ var everyauth = require('everyauth')
 
 // Logout path
 everyauth.everymodule.logoutPath('/logout');
-
+everyauth.everymodule.moduleErrback( function (err) {
+	console.log(err);
+});
 everyauth.everymodule.handleLogout( function (req, res) {
   req.logout();
 	req.session.destroy();
