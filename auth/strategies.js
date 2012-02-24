@@ -33,7 +33,9 @@ everyauth.twitter
 		User.findOne({tw_id: twuser.id}, function(err, user){
 			if(!user){
 				var new_user = new User();
-				new_user.data = JSON.stringify(twuser);	
+				try{
+					new_user.data = JSON.stringify(twuser);	
+				} catch(){}
 				new_user.tw_id = twuser.id;
 				new_user.name = twuser.name;
 				new_user.save(function(err, usr){
@@ -71,7 +73,9 @@ everyauth.facebook
 		User.findOne({fb_id: fbuser.id}, function(err, user){
 			if(!user){
 				var new_user = new User();
-				new_user.data = JSON.stringify(fbuser);	
+				try{
+					new_user.data = JSON.stringify(fbuser);	
+				} catch{}
 				new_user.fb_id = fbuser.id;
 				new_user.name = fbuser.name;
 				new_user.save(function(err, usr){
