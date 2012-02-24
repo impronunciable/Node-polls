@@ -15,10 +15,11 @@ var Poll = require('../models/poll')
 
 app.post('/polls/create', function(req, res){
 	var no_empty = [];
-	req.body.options.forEach(function(option){
-		if(option.length)	no_empty.push({ title: option});
-	});
-
+	if(req.body.options){
+		req.body.options.forEach(function(option){
+			if(option.length)	no_empty.push({ title: option});
+		});
+	}
 	if(req.body.options && no_empty.length >= 2){
 		// New Poll instance
 		var poll = new Poll();
