@@ -96,7 +96,7 @@ app.get('/widget/:poll_id', function(req, res){
 		if(err || !poll){
 			res.send('bad iframe');
 		} else {
-			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), poll_domain: config.host.domain});
+			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll).replace("\'","&#39;"), poll_domain: config.host.domain});
 			res.render('polls/widget', { layout: false});
 		}
 	});
