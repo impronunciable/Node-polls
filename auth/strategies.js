@@ -97,6 +97,7 @@ everyauth.facebook
     delete session.redirectTo;
     res.redirect(redirectTo);
   })
+	.moduleTimeout(10000)
 	.entryPath('/auth/facebook')
   .redirectPath('/');
 
