@@ -44,6 +44,9 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
+process.on('uncaughtException', function (err) {
+  console.log('Caught exception: ' + err);
+});
 
 // Routes
 
@@ -74,4 +77,4 @@ everyauth.helpExpress(app);
 
 // Server listen port 3000
 
-app.listen(config.host.port,config.host.ip);
+app.listen(3000);
