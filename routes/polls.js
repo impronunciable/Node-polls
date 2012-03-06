@@ -83,7 +83,7 @@ app.get('/polls/:poll_id/vote/:opt_id', function(req, res){
 
 app.get('/p/:short_url', function(req, res){
 	Poll.findOne({'short_url' : req.params.short_url}, function(err, poll){
-		if(poll || !err) {
+		if(poll && !err) {
 			res.redirect('/polls/' + poll._id);
 		} else {
 			res.redirect('/');
