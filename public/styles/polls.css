@@ -164,7 +164,7 @@
 				#pollSnippet p {padding:20px 0 10px; text-align:center;}
 				#pollSnippet #___plusone_1,
 				#pollSnippet .twitter-share-button {position:relative; top:-13px;}
-				#pollSnippet .fbshare {position:relative; top:-18px; border: 1px solid #CAD4E7; background: url('http://s-static.ak.facebook.com/rsrc.php/v1/y7/r/ql9vukDCc4R.png') #ECEEF5 no-repeat; background-position: 0 -139px; padding: 3px; margin-right: 15px; width: 50px; display: inline; border-radius: 3px; }
+				#pollSnippet .fbshare {position:relative; top:-17px; border: 1px solid #CAD4E7; background: url('http://s-static.ak.facebook.com/rsrc.php/v1/y7/r/ql9vukDCc4R.png') #ECEEF5 no-repeat; background-position: 0 -138px; padding: 3px 3px 3px 20px; margin-right: 15px; width: 50px; display: inline; border-radius: 3px; }
 				#pollSnippet .fbshare a { color: #3B5998; text-decoration: none; }
 			 
 			/*------------------*/
