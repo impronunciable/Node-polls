@@ -39,7 +39,6 @@ app.configure(function(){
 	app.use(express.logger({stream:fs.createWriteStream('./log_file.log', {flags: 'a'})}));
   app.use(express.session({ secret: config.session.secret, store: new MongoStore(db) }));
   app.use(everyauth.middleware());
-  app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
 
