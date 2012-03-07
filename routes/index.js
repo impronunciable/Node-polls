@@ -27,10 +27,47 @@ require('./polls');
 
 var Poll = mongoose.model('Poll');
 
+
 app.get('/', function(req, res){
-	Poll.findOne({}).desc('updated_at').run(function(err, poll){
-		res.render('index', { title: 'InstaPolls', hot_poll: poll, json_poll: JSON.stringify(poll), poll_domain: config.host.domain });
+	function async_querys(queue, callback) {
+		var to_go = queue.length;
+		var results = [];
+		queue.forEach(function(query){
+			switch(query.type) {
+				case 'find':
+					qr = Poll.find(query.query);
+					break;
+				case 'findOne':
+					qr = Poll.findOne(query.query)
+					break;
+				default:
+					qr = false;
+			}
+			if(qr) {
+				if(query.desc) { qr.desc(query.desc); }
+				if(query.limit) { qr.limit(query.limit); }
+				qr.run(function(err, res) {
+					results[query.name] = res;
+					if (--to_go == 0) callback(results);
+				});
+			} else {
+				--to_go
+			}
+		});
+	};
+
+	querys = [
+		{ name: 'last_polls', type: 'find', query: {}, desc: 'updated_at', limit: 5 },
+		{ name: 'hot_poll', type: 'findOne', query: {}, desc: 'updated_at' }
+	];
+
+	async_querys(querys, function(context) {
+		context.title = 'InstaPolls';
+		context.poll_domain = config.host.domain;
+		context.json_poll = JSON.stringify(context.hot_poll);
+		res.render('index', context);
 	});
+
 });
 
 app.get('/login/twitter', function(req, res){
