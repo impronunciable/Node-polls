@@ -6,6 +6,7 @@
 var express = require('express')
   , sio = require('socket.io')
   , mongoose = require('mongoose')
+  , MongoStore = require('connect-mongo')
 	, everyauth = require('everyauth')
 	, fs = require('fs')
 	, config = require('./config.json');
@@ -13,6 +14,12 @@ var express = require('express')
 var app = module.exports = express.createServer();
 
 // Set up the db
+
+var db =  {
+		db: config.db.name
+  , host: config.db.host
+};
+
 
 mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name);
 
@@ -30,7 +37,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser());
 	app.use(express.logger({stream:fs.createWriteStream('./log_file.log', {flags: 'a'})}));
-  app.use(express.session({ secret: config.session.secret }));
+  app.use(express.session({ secret: config.session.secret, store: new MongoStore(db) }));
   app.use(everyauth.middleware());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));

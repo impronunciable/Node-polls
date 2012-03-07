@@ -14,5 +14,6 @@
     	, "socket.io" : "0.8.7"
     	, "mongoose" : "2.5.5"
     	, "everyauth" : "0.2.30"
+      , "connect-mongo" : "0.1.7"
   	}
 }
