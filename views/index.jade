@@ -2,6 +2,14 @@
 	h3 The easiest way to get feedback in real time and make up your mind about anything.
 	h4 Create polls in just seconds, and watch people vote in real time. Share them on Twitter, Facebook and your website. Crowdsource the answers to most of your questions.
 
+#lastpolls
+	.wrap
+		h6 Latest polls
+		ol
+			each poll in last_polls
+				li
+					a(href="/polls/#{poll._id}") #{poll.title}
+
 #poll.wrap
 	#newPoll
 	
@@ -44,12 +52,13 @@
 					a(href="/polls/"+hot_poll._id) "#{hot_poll.title}"
 				#chart
 
-			script(type="text/javascript")
-				poll = !{json_poll};
-				poll_domain = '!{poll_domain}';
-			script(type="text/javascript", src="/socket.io/socket.io.js")
-			script(type="text/javascript", src="/js/highcharts.js")
-			script(type="text/javascript", src="/js/poll.js")
+				script(type="text/javascript")
+					poll = !{json_poll};
+					poll_domain = '!{poll_domain}';
+				script(type="text/javascript", src="/socket.io/socket.io.js")
+				script(type="text/javascript", src="/js/highcharts.js")
+				script(type="text/javascript", src="/js/poll.js")
+
 	- }
 
 	#features
@@ -69,13 +78,6 @@
 				div
 					h6 Mobile
 					p Visit Instapoll from your iPhone/Android and create a poll right away. No installation or download required!
-	
-	.lastpolls
-		h5 Last polls
-		ul
-			each poll in last_polls
-				li
-					a(href="/polls/#{poll._id}") #{poll.title}
 
 
 script(type="text/javascript")
