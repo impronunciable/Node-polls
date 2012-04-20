@@ -34,7 +34,7 @@ app.get('/', function(req, res){
 
 
 	querys = [
-		{ name: 'last_polls', collection: Poll,  type: 'find', query: {}, desc: 'updated_at', limit: 5 },
+		{ name: 'last_polls', collection: Poll,  type: 'find', query: {}, desc: 'updated_at', limit: 10 },
 		{ name: 'hot_poll', collection: Poll, type: 'findOne', query: {}, desc: 'updated_at' }
 	];
 
