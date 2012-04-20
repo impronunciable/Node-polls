@@ -5,6 +5,7 @@
 
 var everyauth = require('everyauth')
 	, mongoose = require('mongoose')
+	, utils = require('./utils')
 	, config = require('../config.json');
 
 /*
@@ -25,12 +26,25 @@ var app = module.parent.exports;
 
 require('./polls');
 
-var Poll = mongoose.model('Poll');
+var Poll = mongoose.model('Poll')
+	, User = mongoose.model('User');
+
 
 app.get('/', function(req, res){
-	Poll.findOne({}).desc('updated_at').run(function(err, poll){
-		res.render('index', { title: 'InstaPolls', hot_poll: poll, json_poll: JSON.stringify(poll), poll_domain: config.host.domain });
+
+
+	querys = [
+		{ name: 'last_polls', collection: Poll,  type: 'find', query: {}, desc: 'updated_at', limit: 5 },
+		{ name: 'hot_poll', collection: Poll, type: 'findOne', query: {}, desc: 'updated_at' }
+	];
+
+	utils.async_queries(querys, function(context) {
+		context.title = 'InstaPolls';
+		context.poll_domain = config.host.domain;
+		context.json_poll = JSON.stringify(context.hot_poll);
+		res.render('index', context);
 	});
+
 });
 
 app.get('/login/twitter', function(req, res){

@@ -100,6 +100,22 @@
 				}		
 			});
 		});
+		
+		$('#lastpolls li').hide();
+		$('#lastpolls li:first').addClass('currentTick').show();		
+		setInterval(function() {
+			var nextItem = $('#lastpolls .currentTick').next();
+			if (nextItem.length == 0){
+				$('#lastpolls li:last').removeClass().fadeOut();
+				nextItem = $('#lastpolls li:first');
+				nextItem.addClass('currentTick');
+			}
+			else {
+				nextItem;
+			}
+			$(nextItem).prev().removeClass().fadeOut();
+			$(nextItem).addClass('currentTick').fadeIn();
+		}, 3000);
 
 		socket.on('vote proc', function(data){
 			$('#'+data.option_id+' a span').text(parseInt($('#'+data.option_id+' span').text()) + 1);

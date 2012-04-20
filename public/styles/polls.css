@@ -38,13 +38,13 @@
 			.wrap {width:85%; margin:0 auto;}
 			
 			/*- Float clears -*/
-			#header, #poll, #socialLogin p {overflow:hidden;}
+			#header, #poll, #socialLogin p, #lastpolls .wrap {overflow:hidden;}
 			
 			/*- Hide text -*/
 			#logo a, .refColor, .refColor span, #newPoll .remove {display:block; font-size:0; text-indent:-9999em;}
 			
 			/*- Border radius -*/
-			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div, #pollQuestions span {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
+			.refColor, .refColor span, #pollSnippet pre, .cta, #socialLogin p, #newPoll input, #newPoll fieldset, #newPoll .addOption, #features li div, #pollQuestions span, #lastpolls .wrap {-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;}
 			
 			/*- Box shadows -*/		
 			#socialLogin p {-moz-box-shadow:0 0 3px rgba(0,0,0,0.3); -webkit-box-shadow:0 0 3px rgba(0,0,0,0.3); -o-box-shadow:0 0 3px rgba(0,0,0,0.3); box-shadow:0 0 3px rgba(0,0,0,0.3);}
@@ -152,6 +152,16 @@
 				#pollGraph h5 a {color:#468700;}
 				#pollGraph h5 a:hover {color:#000;}
 				#chart {background:url(../images/icons/loading.gif) no-repeat center center;}
+				
+				#lastpolls {clear:both;}
+					#lastpolls .wrap {background:#F3FDDC; margin:-20px auto 40px; border:1px solid #D8F4B9;}
+					#lastpolls h6,
+					#lastpolls ol {float:left; padding:15px;}
+					#lastpolls h6 {color:#448800;}
+					#lastpolls ol {position:relative;}
+					#lastpolls li {width:100%; position:absolute; top:15px; left:0; z-index:1;}
+					#lastpolls li a {color:#448800;}
+					#lastpolls li a:hover {color:#000;}
 			
 			/*------------------*/
 			/* SNIPPET			*/
@@ -183,6 +193,7 @@
 			#socialLogin {position:absolute; padding:7% 3%; top:0; left:0; width:41%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
 				#socialLogin p {background:#FFF; border:1px solid #CCC;}
 				#socialLogin em {display:block; font-style:normal; text-align:center; color:#999; font-size:1.5em; padding:25px 0 20px; border-bottom:1px solid #EEE;}
+				#socialLogin #spam {font-size:1em; color:#666; line-height:140%; padding-top:10px;}
 				#socialLogin span {float:left; padding:5% 0 5% 5%; width:42%;}
 					#socialLogin span#spam {padding:0 5%; width:auto;}
 				#socialLogin .cta {opacity:0.9;}
