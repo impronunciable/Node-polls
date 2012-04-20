@@ -158,7 +158,7 @@
 					#lastpolls h6,
 					#lastpolls ol {float:left; padding:15px;}
 					#lastpolls h6 {color:#448800;}
-					#lastpolls ol {position:relative;}
+					#lastpolls ol {position:relative;width:80%;}
 					#lastpolls li {width:100%; position:absolute; top:15px; left:0; z-index:1;}
 					#lastpolls li a {color:#448800;}
 					#lastpolls li a:hover {color:#000;}
