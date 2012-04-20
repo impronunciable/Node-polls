@@ -5,7 +5,7 @@
 
 var everyauth = require('everyauth')
 	, mongoose = require('mongoose')
-	, utils = require('./utils')
+	, utils = require('../utils')
 	, config = require('../config.json');
 
 /*
