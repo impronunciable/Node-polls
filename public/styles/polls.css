@@ -193,7 +193,7 @@
 			#socialLogin {position:absolute; padding:7% 3%; top:0; left:0; width:41%; height:100%; z-index:1; background:rgba(255,255,255,0.7);}
 				#socialLogin p {background:#FFF; border:1px solid #CCC;}
 				#socialLogin em {display:block; font-style:normal; text-align:center; color:#999; font-size:1.5em; padding:25px 0 20px; border-bottom:1px solid #EEE;}
-				#socialLogin #spam {font-size:1em; color:#666; line-height:140%; padding-top:10px;}
+				#socialLogin #spam {font-size:1em; color:#666; line-height:140%; padding-top:10px;clear:both;}
 				#socialLogin span {float:left; padding:5% 0 5% 5%; width:42%;}
 					#socialLogin span#spam {padding:0 5%; width:auto;}
 				#socialLogin .cta {opacity:0.9;}
