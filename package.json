@@ -10,7 +10,7 @@
 		}
   , "dependencies" : {
     	  "express" : "2.5.1"
-			, "jade" : ">= 0.0.1"
+			, "jade" : "0.24.0"
     	, "socket.io" : "0.8.7"
     	, "mongoose" : "2.5.5"
     	, "everyauth" : "0.2.30"
