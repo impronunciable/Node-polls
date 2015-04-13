@@ -1,66 +1,69 @@
-#pollQuestions.wrap
-	h3= poll.title
-	h4= poll.subtitle
-	p
-		span
-			strong Short url: 
-			a(href="http://instapoll.in/p/#{poll.short_url}") http://instapoll.in/p/#{poll.short_url}
+extends ../layout.jade
 
-#poll.wrap
-	-if(!voter){
-		#pollOptions
-			ul
-				each opt,key in poll.opts
-					li
-						span.refColor
-							span
-						input(type="radio", name="votePoll", id="votePoll" + key)
-						label(for="votePoll" + key)= opt.title
+block body
+  #pollQuestions.wrap
+    h3= poll.title
+    h4= poll.subtitle
+    p
+      span
+        strong Short url: 
+        a(href="http://instapoll.in/p/#{poll.short_url}") http://instapoll.in/p/#{poll.short_url}
 
-			p
-				a.cta#vote-submit
-					strong Vote Now!
-	-}
-	-var poll_style = (voter) ? "width:100%" : "";
-	#pollGraph(style=poll_style)
-		#chart
-	
-	-if(!auth){
-		#socialLogin
-			p
-				em You need to be logged-in in order to vote
-				span#twitter-login
-					a.cta(href='/login/twitter') 
-						strong Login with Twitter
-				span#facebook-login
-					a.cta(href='/login/facebook') 
-						strong Login with Facebook
-				em#spam We hate spam, and we don't post anything on your Facebook/Twitter account. We just ask you to login to avoid cheaters, you know
-	-}
+  #poll.wrap
+    -if(!voter){
+      #pollOptions
+        ul
+          each opt,key in poll.opts
+            li
+              span.refColor
+                span
+              input(type="radio", name="votePoll", id="votePoll" + key)
+              label(for="votePoll" + key)= opt.title
 
-#pollSnippet.wrap
-	h5 Share this poll in:
-	p
-		<g:plusone size="medium" href="http://instapoll.in/polls/#{poll._id}"></g:plusone>
-		a.twitter-share-button(href="https://twitter.com/share", data-url="http://instapoll.in/p/#{poll.short_url}", data-text="Please vote and watch realtime results of my #InstaPoll: #{poll.title}") Tweet
-		span.fbshare
-			a(target="_blank", href="http://www.facebook.com/sharer.php?s=100&p[images][0]=http://instapoll.in/instapollicon.png&p[url]=http://instapoll.in/p/#{poll.short_url}&p[title]=#{poll.title}&p[summary]=#{poll.subtitle || ''}") Share
-		<iframe src="//www.facebook.com/plugins/like.php?href=http://instapoll.in/polls/#{poll._id}&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:31px;" allowTransparency="true"></iframe>
-	h5 or Paste this code on your website to show the poll:
-	pre #{'<script type="text/javascript" id="'}#{poll._id}#{'" src="http://instapoll.in/js/w.js"></script>'}
+        p
+          a.cta#vote-submit
+            strong Vote Now!
+    -}
+    -var poll_style = (voter) ? "width:100%" : "";
+    #pollGraph(style=poll_style)
+      #chart
+    
+    -if(!auth){
+      #socialLogin
+        p
+          em You need to be logged-in in order to vote
+          span#twitter-login
+            a.cta(href='/login/twitter') 
+              strong Login with Twitter
+          span#facebook-login
+            a.cta(href='/login/facebook') 
+              strong Login with Facebook
+          em#spam We hate spam, and we don't post anything on your Facebook/Twitter account. We just ask you to login to avoid cheaters, you know
+    -}
 
-#disqus_thread.wrap
-script()
-	var disqus_shortname = 'instapoll';
-	(function() {
-	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-	
-script(type="text/javascript", src="/socket.io/socket.io.js")
-script(type="text/javascript", src="/js/highcharts.js")
-script()
-	var poll = !{json_poll};
-	var poll_domain = '!{poll_domain}';
-script(type="text/javascript", src="/js/poll.js")
+  #pollSnippet.wrap
+    h5 Share this poll in:
+    p
+      <g:plusone size="medium" href="http://instapoll.in/polls/#{poll._id}"></g:plusone>
+      a.twitter-share-button(href="https://twitter.com/share", data-url="http://instapoll.in/p/#{poll.short_url}", data-text="Please vote and watch realtime results of my #InstaPoll: #{poll.title}") Tweet
+      span.fbshare
+        a(target="_blank", href="http://www.facebook.com/sharer.php?s=100&p[images][0]=http://instapoll.in/instapollicon.png&p[url]=http://instapoll.in/p/#{poll.short_url}&p[title]=#{poll.title}&p[summary]=#{poll.subtitle || ''}") Share
+      <iframe src="//www.facebook.com/plugins/like.php?href=http://instapoll.in/polls/#{poll._id}&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=232069393501695" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:31px;" allowTransparency="true"></iframe>
+    h5 or Paste this code on your website to show the poll:
+    pre #{'<script type="text/javascript" id="'}#{poll._id}#{'" src="http://instapoll.in/js/w.js"></script>'}
+
+  #disqus_thread.wrap
+  script().
+    var disqus_shortname = 'instapoll';
+    (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    
+  script(type="text/javascript", src="/socket.io/socket.io.js")
+  script(type="text/javascript", src="/js/highcharts.js")
+  script().
+    var poll = !{json_poll};
+    var poll_domain = '!{poll_domain}';
+  script(type="text/javascript", src="/js/poll.js")

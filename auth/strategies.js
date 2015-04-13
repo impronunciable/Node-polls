@@ -20,6 +20,10 @@ everyauth.everymodule.handleLogout( function (req, res) {
   res.end();
 });
 
+everyauth.everymodule.findUserById(function(userId, callback){
+  User.findById(userId, callback);
+});
+
 
 /*
  * Twitter login

@@ -1,4 +1,4 @@
-!!!
+doctype
 html(xmlns="http://www.w3.org/1999/xhtml")
 	head
 		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
@@ -10,7 +10,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 		title #{title}
 		script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
 		link(rel="shortcut icon", href="/favicon.ico")
-		script(type="text/javascript)	
+		script(type="text/javascript").
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-115447-19']);
 			_gaq.push(['_trackPageview']);	
@@ -41,7 +41,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 				a.cta(href="/#newPoll")
 					strong + Create a new Poll
 
-		!= body
+		block body
 
 		#footer
 			.wrap
@@ -51,20 +51,20 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 						a(href="/terms") Terms &amp; Conditions
 					
 					
-	script(type="text/javascript")
+	script(type="text/javascript").
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-	script(type="text/javascript")
+	script(type="text/javascript").
 		(function(){
 			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 			po.src = 'https://apis.google.com/js/plusone.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 		})();
 		
-	script(type="text/javascript")
+	script(type="text/javascript").
 		var is_ssl = ("https:" == document.location.protocol);
 		var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
 		document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-	script(type="text/javascript")	
+	script(type="text/javascript").
 		var feedback_widget_options = {};		
 		feedback_widget_options.display = "overlay";  
 		feedback_widget_options.company = "instapoll";

@@ -51,8 +51,8 @@ app.get('/polls/:poll_id',  function(req, res){
 			res.redirect('back');
 		} else {
 			var voter = ( !(req.session && req.session.user) ||  (poll.voters.indexOf(req.session.user) == -1)) ? false : true;
-			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user), voter: voter, poll_domain: config.host.domain});
-			res.render('polls/view');
+			var locals = {title: poll.title, poll: poll, json_poll: JSON.stringify(poll), auth: !!(req.session && req.session.user), voter: voter, poll_domain: config.host.domain};
+			res.render('polls/view', locals);
 		}
 	});
 });
@@ -96,8 +96,8 @@ app.get('/widget/:poll_id', function(req, res){
 		if(err || !poll){
 			res.send('bad iframe');
 		} else {
-			res.locals({ title: poll.title, poll: poll, json_poll: JSON.stringify(poll).replace("\'","&#39;"), poll_domain: config.host.domain});
-			res.render('polls/widget', { layout: false});
+			var locals = {title: poll.title, poll: poll, json_poll: JSON.stringify(poll).replace("\'","&#39;"), poll_domain: config.host.domain};
+			res.render('polls/widget', locals);
 		}
 	});
 

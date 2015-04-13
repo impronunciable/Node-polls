@@ -3,14 +3,20 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , sio = require('socket.io')
-  , mongoose = require('mongoose')
-	, everyauth = require('everyauth')
-	, fs = require('fs')
-	, config = require('./config.json');
+var express = require('express');
+var sio = require('socket.io');
+var mongoose = require('mongoose');
+var everyauth = require('everyauth');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var errorHandler = require('errorhandler');
+var morgan = require('morgan');
+var fs = require('fs');
+var config = require('./config.json');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express();
+var server = require('http').Server(app);
 
 // Set up the db
 
@@ -23,43 +29,32 @@ require('./auth/strategies');
 
 // Configuration
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.cookieParser());
-	app.use(express.logger({stream:fs.createWriteStream('./log_file.log', {flags: 'a'})}));
-  app.use(express.session({ secret: config.session.secret}));
-  app.use(everyauth.middleware());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
-
-process.on('uncaughtException', function (err) {
-  console.log('Caught exception: ' + err);
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({ secret: config.session.secret, resave: false, saveUninitialized: false}));
+app.use(morgan('combined', {stream:fs.createWriteStream('./log_file.log', {flags: 'a'})}));
+app.use(everyauth.middleware());
 
 // Routes
 
-require('./routes')
+require('./routes');
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(errorHandler()); 
+  process.on('uncaughtException', function (err) {
+    console.log('Uncaught exception: ' + err);
+  });
+} else {
+  app.use(errorHandler({ dumpExceptions: true, showStack: true })); 
+}
 
 // Socket.io
 
-var io = sio.listen(app);
-
-io.configure(function(){
-	io.enable('browser client minification');
-	io.enable('browser client gzip');
-});
+var io = sio(server);
 
 io.sockets.on('connection', function(socket){
 	socket.on('join poll', function(poll_id){
@@ -71,10 +66,6 @@ io.sockets.on('connection', function(socket){
 	});
 });
 
-// Everyauth helper for express
-
-everyauth.helpExpress(app);
-
 // Server listen port 3000
 
-app.listen(3000);
+server.listen(3000);

@@ -1,100 +1,103 @@
-#pollQuestions.wrap
-	h3 The easiest way to get feedback in real time and make up your mind about anything.
-	h4 Create polls in just seconds, and watch people vote in real time. Share them on Twitter, Facebook and your website. Crowdsource the answers to most of your questions.
+extends ./layout.jade
 
-#lastpolls
-	.wrap
-		h6 Latest polls
-		ol
-			each poll in last_polls
-				li
-					a(href="/polls/#{poll._id}") #{poll.title}
+block body
 
-#poll.wrap
-	#newPoll
-	
-		h5 Create a new poll!
-			em Know what other people think about&hellip;
+  #pollQuestions.wrap
+    h3 The easiest way to get feedback in real time and make up your mind about anything.
+    h4 Create polls in just seconds, and watch people vote in real time. Share them on Twitter, Facebook and your website. Crowdsource the answers to most of your questions.
 
-		form(action="/polls/create", method="POST", id="create_poll")
-		
-			fieldset
-			
-				p
-					label(for="title") Title
-					input(type="text", name="title", id="title")
-				
-				p
-					label(for="subtitle") Description 
-						em (Optional)
-					input(type="text", name="subtitle", id="subtitle")
-			
-			.poll_options
-			
-				p
-					label(for="option1]") Option 1
-					input(type="text", id="option1", name="options[]")
-				p
-					label(for="option2") Option 2
-					input(type="text", id="option2", name="options[]")
+  #lastpolls
+    .wrap
+      h6 Latest polls
+      ol
+        each poll in last_polls
+          li
+            a(href="/polls/#{poll._id}") #{poll.title}
 
-				p
-					a.add-option(href="#") + Add another option
-			
-				p
-					button.cta(type="submit")
-						strong Create my Poll!
+  #poll.wrap
+    #newPoll
+    
+      h5 Create a new poll!
+        em Know what other people think about&hellip;
 
-	-if(hot_poll) {					
+      form(action="/polls/create", method="POST", id="create_poll")
+      
+        fieldset
+        
+          p
+            label(for="title") Title
+            input(type="text", name="title", id="title")
+          
+          p
+            label(for="subtitle") Description 
+              em (Optional)
+            input(type="text", name="subtitle", id="subtitle")
+        
+        .poll_options
+        
+          p
+            label(for="option1]") Option 1
+            input(type="text", id="option1", name="options[]")
+          p
+            label(for="option2") Option 2
+            input(type="text", id="option2", name="options[]")
 
-			#pollGraph
-				h5 Hot Poll Right Now: 
-					a(href="/polls/"+hot_poll._id) "#{hot_poll.title}"
-				#chart
+          p
+            a.add-option(href="#") + Add another option
+        
+          p
+            button.cta(type="submit")
+              strong Create my Poll!
 
-				script(type="text/javascript")
-					poll = !{json_poll};
-					poll_domain = '!{poll_domain}';
-				script(type="text/javascript", src="/socket.io/socket.io.js")
-				script(type="text/javascript", src="/js/highcharts.js")
-				script(type="text/javascript", src="/js/poll.js")
+    -if(hot_poll) {					
 
-	- }
+        #pollGraph
+          h5 Hot Poll Right Now: 
+            a(href="/polls/"+hot_poll._id) "#{hot_poll.title}"
+          #chart
 
-	#features
-		h5 This is why you'll love Instapoll.in
-		ul
-			li.feature#feature1
-				div
-					h6 As easy as 1, 2, 3
-					p Create your poll in just a couple of seconds. No registration, no complications, just ask stuff!
-				
-			li.feature#feature2
-				div
-					h6 Real Time
-					p See what people vote in real time. Graphic representation updates instantly. It's like magic!
-				
-			li.feature#feature3
-				div
-					h6 Mobile
-					p Visit Instapoll from your iPhone/Android and create a poll right away. No installation or download required!
+          script(type="text/javascript").
+            poll = !{json_poll};
+            poll_domain = '!{poll_domain}';
+          script(type="text/javascript", src="/socket.io/socket.io.js")
+          script(type="text/javascript", src="/js/highcharts.js")
+          script(type="text/javascript", src="/js/poll.js")
+
+    - }
+
+    #features
+      h5 This is why you'll love Instapoll.in
+      ul
+        li.feature#feature1
+          div
+            h6 As easy as 1, 2, 3
+            p Create your poll in just a couple of seconds. No registration, no complications, just ask stuff!
+          
+        li.feature#feature2
+          div
+            h6 Real Time
+            p See what people vote in real time. Graphic representation updates instantly. It's like magic!
+          
+        li.feature#feature3
+          div
+            h6 Mobile
+            p Visit Instapoll from your iPhone/Android and create a poll right away. No installation or download required!
 
 
-script(type="text/javascript")
-	$(function(){
-		$('.add-option').click(function(e){
-			e.preventDefault();
-			var opt_length = $('.poll_options input[type=text]').length + 1;
-			var option = $('.poll_options input[type=text]:last').parent().clone();
-			var option_num = parseInt(option.children('label').text().split(' ')[1]) + 1;
-			option.children('input').attr('value','').attr('id','option'+option_num).after('<a href="#" class="remove">close</a>').siblings('label').text('Option ' + option_num).attr('for','option'+option_num);
-			$(this).parent().before(option);
-		});
-		$('a.remove').live("click", function(e){
-			e.preventDefault();
-			$(this).parent().slideUp(function(){
-				$(this).remove();
-			});
-		});
-	});
-
+  script(type="text/javascript").
+    $(function(){
+      $('.add-option').click(function(e){
+        e.preventDefault();
+        var opt_length = $('.poll_options input[type=text]').length + 1;
+        var option = $('.poll_options input[type=text]:last').parent().clone();
+        var option_num = parseInt(option.children('label').text().split(' ')[1]) + 1;
+        option.children('input').attr('value','').attr('id','option'+option_num).after('<a href="#" class="remove">close</a>').siblings('label').text('Option ' + option_num).attr('for','option'+option_num);
+        $(this).parent().before(option);
+      });
+      $('a.remove').live("click", function(e){
+        e.preventDefault();
+        $(this).parent().slideUp(function(){
+          $(this).remove();
+        });
+      });
+    });

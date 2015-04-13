@@ -32,7 +32,6 @@ var Poll = mongoose.model('Poll')
 
 app.get('/', function(req, res){
 
-
 	querys = [
 		{ name: 'last_polls', collection: Poll,  type: 'find', query: {}, desc: 'updated_at', limit: 10 },
 		{ name: 'hot_poll', collection: Poll, type: 'findOne', query: {}, desc: 'updated_at' }
@@ -44,7 +43,6 @@ app.get('/', function(req, res){
 		context.json_poll = JSON.stringify(context.hot_poll);
 		res.render('index', context);
 	});
-
 });
 
 app.get('/login/twitter', function(req, res){
@@ -67,6 +65,6 @@ app.get('/terms', function(req, res){
 	res.render('terms', {title: 'Terms'});
 });
 
-app.error(function(err, req, res, next){
+app.all(function(res, next){
 	res.redirect('/');
 });
