@@ -12,5 +12,5 @@ Installation
 * configure your Twitter credentials in `config.json`
 * `$ mongod`
 * `$ node polls.js`
-*  open your browser at `http://local.host:3000`
+*  open your browser at `http://localhost:3000`
 * Enjoy
